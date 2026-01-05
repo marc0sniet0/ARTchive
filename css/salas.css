@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #4b4bff, #120016);
+  font-family: sans-serif;
+}
+
+/* Escena adaptativa */
+.scene {
+  width: min(90vw, 900px);
+  height: min(65vh, 480px);
+  perspective: clamp(700px, 110vw, 1300px);
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Carrusel */
+.carousel-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+}
+
+/* Tarjetas más pequeñas */
+.carousel-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: clamp(140px, 20vw, 220px);
+  height: clamp(200px, 30vw, 320px);
+
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.45);
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
