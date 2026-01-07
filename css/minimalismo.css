@@ -1,0 +1,128 @@
+:root {
+  --color-fondo: #ffffff;
+  --color-texto: #000000;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.logo span {
+  font-size: 38px;
+  font-weight: 300;
+}
+
+.logo strong {
+  font-size: 38px;
+  font-weight: 700;
+}
+
+.nav {
+  display: flex;
+  gap: 40px;
+}
+
+.nav a {
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--color-texto);
+}
+
+.main-content {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.intro-obra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+.intro {
+  width: 50%;
+}
+.obra {
+  width: 50%;
+}
+.intro h1 {
+  font-size: 63px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.intro p {
+  font-size: 10pt;
+  line-height: 1.6;
+}
+
+.intro cite {
+  font-family: "Adobe Garamond Pro", serif;
+  font-style: italic;
+  font-size: 12px;
+  display: block;
+  margin-top: 20px;
+}
+
+.obra {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.obra img {
+  width: 100%;
+  max-width: 656px;
+  height: auto;
+}
+
+.obra figcaption {
+  font-family: "Adobe Garamond Pro", serif;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.galeria-item {
+  width: 309px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.galeria-item img {
+  width: 100%;
+  height: 253px;
+  object-fit: cover;
+}
+
+.galeria-item p {
+  font-size: 1rem;
+}
