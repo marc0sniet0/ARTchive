@@ -1,18 +1,22 @@
-$(document).ready(function () {
-  const $galeria = $(".galeria");
-  const $fila1 = $(".fila-1");
-  const $fila2 = $(".fila-2");
+$(function () {
+  const filas = document.querySelectorAll(".fila");
 
-  $galeria.on("wheel", function (e) {
-    const delta = e.originalEvent.deltaY || e.originalEvent.deltaX;
+  filas.forEach((fila) => {
+    fila.addEventListener(
+      "wheel",
+      function (e) {
+        const delta = e.deltaY !== 0 ? e.deltaY : e.deltaX;
+        if (!delta) return;
 
-    // Bloquear scroll vertical de la página
-    e.preventDefault();
+        e.preventDefault(); // evita scroll vertical de la página
 
-    // Fila de arriba → en el sentido del scroll
-    $fila1.scrollLeft($fila1.scrollLeft() + delta);
+        // AUMENTAR VELOCIDAD → cambia 2.5 si quieres más o menos
+        const velocidad = 2.5;
 
-    // Fila de abajo → en sentido contrario
-    $fila2.scrollLeft($fila2.scrollLeft() - delta);
+        // Movimiento rápido y directo
+        fila.scrollLeft += delta * velocidad;
+      },
+      { passive: false }
+    );
   });
 });

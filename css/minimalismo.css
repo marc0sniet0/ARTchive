@@ -105,33 +105,37 @@ body {
   flex-direction: column;
   gap: 30px;
 }
+.galeria-item {
+  flex: 0 0 auto;
+}
+.galeria-item img:hover {
+  scale: calc(1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
 .fila {
   display: flex;
   gap: 30px;
-  overflow-x: auto;
-  overflow-y: hidden;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 10px;
+  white-space: nowrap;
 }
-.galeria-item {
-  width: 350px;
-  flex-shrink: 0;
+.fila-1 {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior: contain; /* clave para que no “salte” al body */
 }
-.galeria-item img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-}
-
-.fila::-webkit-scrollbar {
+.fila-2 {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  flex-direction: row-reverse;
+} /* Ocultar barras si quieres */
+.fila-1::-webkit-scrollbar,
+.fila-2::-webkit-scrollbar {
   display: none;
 }
-
-.fila {
+.fila-1 {
   scrollbar-width: none;
-}
-
-.fila {
   -ms-overflow-style: none;
 }
