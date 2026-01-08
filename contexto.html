@@ -6,46 +6,82 @@
     <title>Document</title>
     <link rel="icon" href="media/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="css/styles.css" />
-
   </head>
   <header class="topbar" role="banner">
-  <a class="brand" href="index.html" aria-label="Ir a inicio">
+    <a class="brand" href="index.html" aria-label="Ir a inicio">
+      <img src="assets/logo.svg" alt="Logo" class="brand__logo" />
+      <span class="brand__name">Tu Museo</span>
+    </a>
 
-    <img src="assets/logo.svg" alt="Logo" class="brand__logo" />
-    <span class="brand__name">Tu Museo</span>
-  </a>
+    <nav class="nav" aria-label="Navegación principal" id="nav">
+      <a class="nav__link" href="salas.html">Salas</a>
+      <a class="nav__link" href="contexto.html">Contexto</a>
+    </nav>
 
-  <nav class="nav" aria-label="Navegación principal" id="nav">
-    <a class="nav__link" href="salas.html">Salas</a>
-    <a class="nav__link" href="contexto.html">Contexto</a>
-  </nav>
+    <div class="actions">
+      <button
+        class="iconbtn"
+        id="searchBtn"
+        aria-label="Abrir buscador"
+        aria-expanded="false"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M10.5 3a7.5 7.5 0 105.03 13.06l3.2 3.2a1 1 0 001.42-1.42l-3.2-3.2A7.5 7.5 0 0010.5 3zm0 2a5.5 5.5 0 110 11 5.5 5.5 0 010-11z"
+          />
+        </svg>
+      </button>
 
-  <div class="actions">
+      <button
+        class="iconbtn burger"
+        id="menuBtn"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="nav"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M4 7h16a1 1 0 100-2H4a1 1 0 000 2zm16 4H4a1 1 0 100 2h16a1 1 0 100-2zm0 6H4a1 1 0 100 2h16a1 1 0 100-2z"
+          />
+        </svg>
+      </button>
+    </div>
 
-    <button class="iconbtn" id="searchBtn" aria-label="Abrir buscador" aria-expanded="false">
-
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M10.5 3a7.5 7.5 0 105.03 13.06l3.2 3.2a1 1 0 001.42-1.42l-3.2-3.2A7.5 7.5 0 0010.5 3zm0 2a5.5 5.5 0 110 11 5.5 5.5 0 010-11z"/>
-      </svg>
-    </button>
-
-    <button class="iconbtn burger" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 7h16a1 1 0 100-2H4a1 1 0 000 2zm16 4H4a1 1 0 100 2h16a1 1 0 100-2zm0 6H4a1 1 0 100 2h16a1 1 0 100-2z"/>
-      </svg>
-    </button>
-  </div>
-
-
-  <div class="search" id="search" hidden>
-    <label class="sr-only" for="searchInput">Buscar</label>
-    <input id="searchInput" type="search" placeholder="Buscar obra o artista…" autocomplete="off" />
-  </div>
-</header>
+    <div class="search" id="search" hidden>
+      <label class="sr-only" for="searchInput">Buscar</label>
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Buscar obra o artista…"
+        autocomplete="off"
+      />
+    </div>
+  </header>
 
   <body>
-    <h1>CONTEXTO ARI</h1>
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <div class="contexto-info">
+      <h2>
+        <p>
+          ARTchive propone un recorrido virtual a través de distintas corrientes
+          del arte contemporáneo, organizado en salas temáticas. Cada sala reúne
+          obras representativas de un estilo; desde el Pop Art y el Minimalismo
+          hasta el Arte Digital.
+        </p>
+        <p>
+          El visitante puede avanzar por las salas y explorar las obras. El
+          recorrido no es lineal ni cerrado: se puede avanzar, volver o cambiar
+          de sala en cualquier momento. Este espacio está pensado para ser
+          explorado a tu propio ritmo.
+        </p>
+      </h2>
+    </div>
+
+    <div class="contexto-galeria">
+      <img src="media/pichipichipitch.jpg" alt="imgrecorrido" />
+      <img src="media/tailorswif.png" alt="imgrecorrido" />
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script defer src="./js/script.js"></script>
   </body>
 </html>
