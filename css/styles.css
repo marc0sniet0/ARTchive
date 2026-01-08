@@ -1,0 +1,34 @@
+@import url("https://use.typekit.net/ito7kjs.css");
+
+
+:root {
+    --color-negro: #000000;
+    --color-blanco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    font-optical-sizing: auto;
+    font-family: "aileron", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    scroll-behavior: smooth;
+    user-select: none;
+    
+}
+
+
+
+body {
+  margin: 0;
+  background: var(--color-carmesí);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+h1{
+   color: #000000;
+    font-size: 3.5rem;
+}

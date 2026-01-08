@@ -92,7 +92,7 @@ window.addEventListener("scroll", () => {
 
 createCircularText({
   elementId: "circularText",
-  text: " COMIENZA EL RECORRIDO",
+  text: " PINCHA PARA COMENZAR",
   spinDuration: 580,
   onHover: "speedUp",
   clickUrl: "../contexto.html"
