@@ -1,0 +1,50 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: #0e0e0e;
+  color: white;
+}
+
+.lock-scroll {
+  overflow: hidden;
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  background: #0e0e0e;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  z-index: 100;
+}
+
+#intro-title {
+  font-size: clamp(3rem, 10vw, 9rem);
+  letter-spacing: 0.12em;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.gallery {
+  min-height: 100vh;
+  padding: 6rem 10%;
+  background: #fafafa;
+  color: #111;
+}
+
+#intro-title{
+  will-change: transform, opacity, filter;
+  transform-origin: center;
+}
+
+.intro{
+  will-change: opacity;
+}
