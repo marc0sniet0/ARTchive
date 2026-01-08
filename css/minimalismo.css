@@ -13,14 +13,9 @@ body {
   background-color: var(--color-fondo);
   color: var(--color-texto);
 }
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
+.logo {
+  margin-right: 3rem;
 }
-
 .logo span {
   font-size: 38px;
   font-weight: 300;
@@ -31,16 +26,48 @@ body {
   font-weight: 700;
 }
 
-.nav {
+.header {
   display: flex;
-  gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
 }
-
-.nav a {
-  font-size: 20px;
-  font-weight: 700;
+.logo {
   text-decoration: none;
   color: var(--color-texto);
+  margin-right: 3rem;
+}
+.logo span {
+  font-size: 38px;
+  font-weight: 300;
+}
+.logo strong {
+  font-size: 38px;
+  font-weight: 700;
+}
+.nav {
+  display: flex;
+  gap: 6rem;
+}
+.nav a {
+  font-family: "Ranade-Regular", sans-serif;
+  font-size: 1.2rem;
+  color: var(--color-texto);
+  text-decoration: none;
+}
+.nav a:hover {
+  opacity: 0.5;
+} /* Botón hamburguesa (oculto en escritorio) */
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.burger-icon {
+  width: 30px;
+  height: 30px;
+  display: none;
 }
 
 .bloque-minimalismo {
@@ -143,4 +170,38 @@ body {
 .fila-1 {
   scrollbar-width: none;
   -ms-overflow-style: none;
+}
+@media (max-width: 768px) {
+  .nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background-color: var(--color-fondo);
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 9rem;
+    display: none;
+    z-index: 100;
+  }
+  .nav a {
+    padding: 0.5rem;
+  }
+  .nav.nav-show {
+    display: flex;
+  }
+  .burger {
+    display: block;
+  }
+  .burger-open {
+    display: block;
+  }
+  .burger-close {
+    display: none;
+  }
+  .burger.menu-open .burger-open {
+    display: none;
+  }
+  .burger.menu-open .burger-close {
+    display: block;
+  }
 }
