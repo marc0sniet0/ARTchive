@@ -1,69 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pop Art — Recorrido</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Pop Art — Recorrido</title>
+    <link rel="icon" href="media/favicon.svg" type="image/svg+xml" />
 
-  <link rel="stylesheet" href="./css/PopArt.css" />
-</head>
+    <link rel="stylesheet" href="./css/PopArt.css" />
+  </head>
 
-<body>
-  <section class="gallery" id="gallery" aria-label="Galería Pop Art por scroll">
-    <div class="sticky" id="sticky">
-      <div class="track" id="track"></div>
+  <body>
+    <section
+      class="gallery"
+      id="gallery"
+      aria-label="Galería Pop Art por scroll"
+    >
+      <div class="sticky" id="sticky">
+        <div class="track" id="track"></div>
 
-      <div class="hud" aria-hidden="true">
-        <span class="dot"></span>
-        <span class="hudText">Haz scroll / arrastra</span>
+        <div class="hud" aria-hidden="true">
+          <span class="dot"></span>
+          <span class="hudText">Haz scroll / arrastra</span>
+        </div>
+
+        <!-- Botones finales: solo se muestran al llegar a la última obra centrada -->
+        <div class="endActions" id="endActions" aria-hidden="true">
+          <button class="endBtn primary" id="btnContinue" type="button">
+            Continuar recorrido
+          </button>
+          <button class="endBtn" id="btnExit" type="button">
+            Salir del recorrido
+          </button>
+        </div>
+
+        <div class="loadingLayer" id="loadingLayer" aria-hidden="false">
+          <div class="loadingCard">
+            <div class="spinner"></div>
+            <div>
+              <div class="loadingTitle" id="loadingTitle">
+                Cargando obras Pop Art…
+              </div>
+              <div class="loadingSub" id="loadingSub">AIC + Harvard</div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Botones finales: solo se muestran al llegar a la última obra centrada -->
-      <div class="endActions" id="endActions" aria-hidden="true">
-        <button class="endBtn primary" id="btnContinue" type="button">Continuar recorrido</button>
-        <button class="endBtn" id="btnExit" type="button">Salir del recorrido</button>
-      </div>
+    <!-- MODAL -->
+    <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="mTitle"
+      >
+        <button class="modalClose" id="modalClose" aria-label="Cerrar">
+          ×
+        </button>
 
-      <div class="loadingLayer" id="loadingLayer" aria-hidden="false">
-        <div class="loadingCard">
-          <div class="spinner"></div>
-          <div>
-            <div class="loadingTitle" id="loadingTitle">Cargando obras Pop Art…</div>
-            <div class="loadingSub" id="loadingSub">AIC + Harvard</div>
+        <div class="modalGrid">
+          <div class="modalMedia">
+            <img id="mImg" alt="" />
+          </div>
+
+          <div class="modalInfo">
+            <div class="modalKicker">POP ART</div>
+            <h2 class="modalTitle" id="mTitle">—</h2>
+            <div class="modalMeta" id="mMeta">—</div>
+
+            <div class="modalFacts" id="mFacts"></div>
+
+            <div class="modalActions">
+              <a class="btn" id="mAic" target="_blank" rel="noopener"
+                >Ver en AIC</a
+              >
+              <a class="btn ghost" id="mHarvard" target="_blank" rel="noopener"
+                >Ver en Harvard</a
+              >
+              <button class="btn ghost" id="mCloseBtn" type="button">
+                Cerrar
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- MODAL -->
-  <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
-    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
-      <button class="modalClose" id="modalClose" aria-label="Cerrar">×</button>
-
-      <div class="modalGrid">
-        <div class="modalMedia">
-          <img id="mImg" alt="" />
-        </div>
-
-        <div class="modalInfo">
-          <div class="modalKicker">POP ART</div>
-          <h2 class="modalTitle" id="mTitle">—</h2>
-          <div class="modalMeta" id="mMeta">—</div>
-
-          <div class="modalFacts" id="mFacts"></div>
-
-          <div class="modalActions">
-            <a class="btn" id="mAic" target="_blank" rel="noopener">Ver en AIC</a>
-            <a class="btn ghost" id="mHarvard" target="_blank" rel="noopener">Ver en Harvard</a>
-            <button class="btn ghost" id="mCloseBtn" type="button">Cerrar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script defer src="./js/PopArt.js"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script defer src="./js/PopArt.js"></script>
+  </body>
 </html>

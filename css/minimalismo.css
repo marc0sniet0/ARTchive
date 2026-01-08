@@ -43,67 +43,73 @@ body {
   color: var(--color-texto);
 }
 
-.main-content {
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-}
-.intro-obra {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-}
-.intro {
-  width: 50%;
-}
-.obra {
-  width: 50%;
-}
-.intro h1 {
-  font-size: 63px;
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-.intro p {
-  font-size: 10pt;
-  line-height: 1.6;
-}
-
-.intro cite {
-  font-family: "Adobe Garamond Pro", serif;
-  font-style: italic;
-  font-size: 12px;
-  display: block;
-  margin-top: 20px;
-}
-
-.obra {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.obra img {
+.bloque-minimalismo {
   width: 100%;
-  max-width: 656px;
-  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 2rem;
 }
 
-.obra figcaption {
-  font-family: "Adobe Garamond Pro", serif;
-  font-style: italic;
-  font-size: 12px;
+.titulo-minimalismo {
+  width: 100%;
+  text-align: center;
+  color: black;
+  font-size: 4rem;
+  font-family: Helvetica, sans-serif;
+  font-weight: 700;
+  word-wrap: break-word;
+  margin: 0;
+}
+
+.imagen-minimalismo-wrapper {
+  position: relative;
+  width: 100%;
+  height: 330px;
+  margin-bottom: 5rem;
+}
+
+.imagen-minimalismo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+/* Texto encima de la imagen */
+.sobre-minimalismo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: black;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Efecto hover: baja opacidad de la imagen y muestra el texto */
+.imagen-minimalismo-wrapper:hover .imagen-minimalismo {
+  opacity: 0.1;
+}
+
+.imagen-minimalismo-wrapper:hover .sobre-minimalismo {
+  opacity: 1;
 }
 
 .galeria {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  padding-inline: 40px;
 }
 .galeria-item {
   flex: 0 0 auto;
@@ -123,14 +129,13 @@ body {
 }
 .fila-1 {
   overflow-x: auto;
-  overflow-y: hidden;
   overscroll-behavior: contain; /* clave para que no “salte” al body */
 }
 .fila-2 {
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-x: auto;
   flex-direction: row-reverse;
-} /* Ocultar barras si quieres */
+  overscroll-behavior: contain;
+}
 .fila-1::-webkit-scrollbar,
 .fila-2::-webkit-scrollbar {
   display: none;

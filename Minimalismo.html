@@ -4,75 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minimalismo</title>
+    <link rel="icon" href="media/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="css/minimalismo.css" />
   </head>
+
   <body>
-    <header class="header">
-      <a class="logo" href="index.html"
-        ><span>ART</span><strong>CHIVE</strong></a
-      >
-      <nav class="nav">
-        <a href="contexto.html">CONTEXTO</a>
-        <a href="#">RECORRIDO</a>
-        <a href="Salas.html">SALAS</a>
-        <a href="#">MAPA</a>
-      </nav>
-    </header>
+    <main>
+      <header class="header">
+        <a class="logo" href="index.html"
+          ><span>ART</span><strong>CHIVE</strong></a
+        >
+        <nav class="nav">
+          <a href="contexto.html">CONTEXTO</a>
+          <a href="#">RECORRIDO</a>
+          <a href="Salas.html">SALAS</a>
+          <a href="#">MAPA</a>
+        </nav>
+      </header>
 
-    <main class="main-content">
-      <div class="intro-obra">
-        <div class="intro">
-          <h1>MINIMALISMO</h1>
-          <p>
-            [...] El término «minimal» fue utilizado por primera vez por Richard
-            Wollheim en 1965 para referirse a las pinturas de Ad Reinhardt y a
-            otros objetos de muy alto contenido intelectual pero de bajo
-            contenido de manufactura.<br /><br />
-            El minimalismo deja fuera toda emoción. Es pura contemplación
-            intelectual y objetiva, algo que llama la atención teniendo en
-            cuenta el contexto político y social de cuando nacen en los años
-            60.<br /><br />
-            El minimalismo es, por así decirlo, como una performance. De alguna
-            manera somos nosotros los espectadores los que hacemos la obra. Esto
-            lo explican los propios artistas minimalistas al afirmar que estas
-            esculturas sólo funcionan con público. Si no hay nadie, quedan
-            desactivadas.<br /><br />
-            El minimalismo se basa en influir en el espacio que lo rodea y sobre
-            todo, influir en quien está en este espacio.<br />
-            Esta característica es propia de la escultura, sin embargo los
-            minimalistas utilizaron con mucho cuidado la palabra «escultura». No
-            querían saber nada del ilusionismo que conlleva el concepto, pues la
-            escultura es, ni más ni menos, transformar una materia prima para
-            convertirla en otra cosa. El material es clave para esta gente,
-            mostrar simple y llanamente «el objeto».<br /><br />
-            Son obras rigurosas, muy precisas, como materiales industriales. El
-            artista minimal no esculpe, no suda, no le salen callos en las manos
-            de tallar material. El artista minimal presenta su «propuesta» (esta
-            sí es una palabra que les gustaba) y es otro quien hace la pieza
-            final. Incluso eliminan todo rastro de su huella, de autoría.<br />
-            El minimalismo es, como toda forma de arte, un intento de poner un
-            poco de orden en un mundo caótico.<br />
-            Es el último movimiento de la modernidad. Después de ellos, llegaría
-            la posmodernidad.
-          </p>
-          <cite
-            >Calvo Santos, M. (2015, 21 de enero). Minimalismo.
-            Historia-Arte.com</cite
-          >
-        </div>
-
-        <div class="obra">
+      <div class="bloque-minimalismo">
+        <h1 class="titulo-minimalismo">MINIMALISMO</h1>
+        <div class="imagen-minimalismo-wrapper">
           <img
-            src="media/obra_equivalentVIII.jpg"
-            alt="Equivalent VIII de Carl Andre"
+            class="imagen-minimalismo"
+            src="media/obra_jardindenarcisos.jpeg"
+            alt="Jardín de Narcisos"
           />
-          <figcaption>
-            Andre, C. (1966). Equivalent VIII [Escultura].
-          </figcaption>
+          <p class="sobre-minimalismo">
+            En esta sala se puede observar el movimiento del minimalismo,
+            surgido en la década de 1960 como una reacción al expresionismo
+            abstracto.
+            <br />Este movimiento artístico se caracteriza por la reducción a lo
+            esencial: formas geométricas simples, materiales industriales y la
+            eliminación de elementos decorativos o narrativos. Las obras
+            expuestas invitan al espectador a experimentar el espacio, la escala
+            y la percepción visual de manera directa y contemplativa, poniendo
+            énfasis en la pureza de la forma y la relación entre el objeto y su
+            entorno.
+          </p>
         </div>
       </div>
-
       <div class="galeria">
         <div class="fila fila-1">
           <div class="galeria-item">
@@ -144,10 +116,11 @@
           </div>
         </div>
       </div>
+
+      <!-- jQuery  -->
+      <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+      <!-- Script -->
+      <script src="js/minimalismo.js"></script>
     </main>
-    <!-- jQuery  -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <!-- Script -->
-    <script src="js/minimalismo.js"></script>
   </body>
 </html>
