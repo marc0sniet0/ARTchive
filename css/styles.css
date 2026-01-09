@@ -79,9 +79,10 @@ h1 {
   box-sizing: border-box;
 }
 .topbar {
-  position: sticky;
+  position: fixed;
   color: var(--color-textos);
   top: 0;
+  width: 100%;
   z-index: 50;
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -173,6 +174,11 @@ h1 {
 .burger {
   display: none;
 }
+
+.ui-autocomplete {
+  z-index: 9999 !important;
+}
+
 
 @media (max-width: 820px) {
   .topbar {
