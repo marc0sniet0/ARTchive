@@ -10,6 +10,67 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <header class="topbar" role="banner">
+      <div class="topbar__main">
+
+        <!-- LOGO -->
+        <a class="brand" href="index.html" aria-label="Ir a inicio">
+          <img src="media/logo_artchive.svg" alt="Logo" class="brand__logo" />
+        </a>
+
+        <!-- ACCIONES: LUPA + INPUT + MENÚ -->
+        <div class="actions">
+
+          <!-- LUPA -->
+          <button
+            class="iconbtn"
+            id="searchBtn"
+            aria-label="Abrir buscador"
+            aria-expanded="false"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M10.5 3a7.5 7.5 0 105.03 13.06l3.2 3.2a1 1 0 001.42-1.42l-3.2-3.2A7.5 7.5 0 0010.5 3zm0 2a5.5 5.5 0 110 11 5.5 5.5 0 010-11z"
+              />
+            </svg>
+          </button>
+
+          <!-- INPUT DE BÚSQUEDA (APARECE AL LADO DE LA LUPA EN DESKTOP) -->
+          <div class="search" id="search" hidden>
+            <label class="sr-only" for="searchInput">Buscar</label>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Buscar obra o artista…"
+              autocomplete="off"
+            />
+          </div>
+
+          <!-- MENÚ HAMBURGUESA -->
+          <button
+            class="iconbtn burger"
+            id="menuBtn"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="nav"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 7h16a1 1 0 100-2H4a1 1 0 000 2zm16 4H4a1 1 0 100 2h16a1 1 0 100-2zm0 6H4a1 1 0 100 2h16a1 1 0 100-2z"
+              />
+            </svg>
+          </button>
+
+        </div>
+
+        <!-- NAVEGACIÓN PRINCIPAL -->
+        <nav class="nav" aria-label="Navegación principal" id="nav">
+          <a class="nav__link" href="salas.html">SALAS</a>
+          <a class="nav__link" href="contexto.html">CONTEXTO</a>
+        </nav>
+
+      </div>
+    </header>
     <div class="scene">
       <div class="carousel-wrapper">
         <div class="carousel">
@@ -23,7 +84,10 @@
       </div>
     </div>
 
-    <script src="js/salas.js"></script>
-    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script defer src="./js/script.js"></script>
+    <script defer src="./js/salas.js"></script>
   </body>
 </html>
