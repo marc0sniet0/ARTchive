@@ -1,17 +1,15 @@
 @import url("https://use.typekit.net/ito7kjs.css");
 
 :root {
-  --color-negro: #000000;
-  --color-blanco: #ffffff;
+  --color-textos: #000000;
+  --color-fondo: #ffffff;
 }
 
 * {
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box; */
   font-optical-sizing: auto;
   font-family: "aileron", sans-serif;
-  font-weight: 200;
   font-style: normal;
   scroll-behavior: smooth;
   user-select: none;
@@ -19,13 +17,13 @@
 
 body {
   margin: 0;
-  background: var(--color-carmesí);
-  color: #000000;
+  color: var(--color-textos);
+  background-color: var(--color-fondo);
   overflow-x: hidden;
 }
 
 h1 {
-  color: #000000;
+  color: var(--color-textos);
   font-size: 3.5rem;
 }
 
@@ -58,7 +56,6 @@ h1 {
 
 .gallery {
   min-height: 100vh;
-  padding: 6rem 10%;
   background: #fafafa;
   color: #111;
 }
@@ -83,16 +80,16 @@ h1 {
 }
 .topbar {
   position: sticky;
+  color: var(--color-textos);
   top: 0;
   z-index: 50;
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
-  gap: 12px;
-  padding: 14px var(--pad);
-  background: rgba(255, 255, 255, 0.8);
+  gap: 1rem;
+  padding: 2rem;
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
+  background-color: var(--color-fondo);
 }
 
 .brand {
@@ -104,16 +101,9 @@ h1 {
   min-width: 0;
 }
 .brand__logo {
-  width: 34px;
-  height: 34px;
+  width: 190px;
+  height: auto;
   object-fit: contain;
-}
-.brand__name {
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .nav {
@@ -122,9 +112,12 @@ h1 {
   gap: 18px;
 }
 .nav__link {
+  font-size: 1.5rem;
   text-decoration: none;
   color: inherit;
-  font-weight: 600;
+  font-weight: lighter;
+  margin-right: 3rem;
+
   opacity: 0.85;
 }
 .nav__link:hover {
@@ -140,12 +133,11 @@ h1 {
 .iconbtn {
   width: 42px;
   height: 42px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.7);
   display: grid;
   place-items: center;
   cursor: pointer;
+  background-color: var(--color-fondo);
+  border: solid 1px var(--color-fondo);
 }
 .iconbtn svg {
   width: 20px;
@@ -161,10 +153,9 @@ h1 {
 .search input {
   width: 100%;
   padding: 12px 14px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
+  border: 1px solid var(--color-fondo);
   font-size: 16px;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--color-fondo);
 }
 
 .sr-only {

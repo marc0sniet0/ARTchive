@@ -5,11 +5,61 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Pop Art — Recorrido</title>
     <link rel="icon" href="media/favicon.svg" type="image/svg+xml" />
-
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="./css/PopArt.css" />
   </head>
 
   <body>
+    <header class="topbar" role="banner">
+      <a class="brand" href="index.html" aria-label="Ir a inicio">
+        <img src="media/logo_artchive.svg" alt="Logo" class="brand__logo" />
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal" id="nav">
+        <a class="nav__link" href="salas.html">SALAS</a>
+        <a class="nav__link" href="contexto.html">CONTEXTO</a>
+      </nav>
+
+      <div class="actions">
+        <button
+          class="iconbtn"
+          id="searchBtn"
+          aria-label="Abrir buscador"
+          aria-expanded="false"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M10.5 3a7.5 7.5 0 105.03 13.06l3.2 3.2a1 1 0 001.42-1.42l-3.2-3.2A7.5 7.5 0 0010.5 3zm0 2a5.5 5.5 0 110 11 5.5 5.5 0 010-11z"
+            />
+          </svg>
+        </button>
+
+        <button
+          class="iconbtn burger"
+          id="menuBtn"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="nav"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M4 7h16a1 1 0 100-2H4a1 1 0 000 2zm16 4H4a1 1 0 100 2h16a1 1 0 100-2zm0 6H4a1 1 0 100 2h16a1 1 0 100-2z"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <div class="search" id="search" hidden>
+        <label class="sr-only" for="searchInput">Buscar</label>
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Buscar obra o artista…"
+          autocomplete="off"
+        />
+      </div>
+    </header>
+
     <section
       class="gallery"
       id="gallery"
@@ -19,7 +69,6 @@
         <div class="track" id="track"></div>
 
         <div class="hud" aria-hidden="true">
-          <span class="dot"></span>
           <span class="hudText">Haz scroll / arrastra</span>
         </div>
 
@@ -86,7 +135,7 @@
         </div>
       </div>
     </div>
-
+    <script defer src="./js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script defer src="./js/PopArt.js"></script>
   </body>
