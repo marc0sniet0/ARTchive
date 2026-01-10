@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Arte Conceptual — Recorrido</title>
+    <link rel="icon" href="media/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="./css/PopArt.css" />
+  </head>
+
+  <body>
+    <header class="topbar" role="banner">
+      <div class="topbar__main">
+        <a class="brand" href="index.html" aria-label="Ir a inicio">
+          <img src="media/logo_artchive.svg" alt="Logo" class="brand__logo" />
+        </a>
+        <div class="actions">
+          <button
+            class="iconbtn"
+            id="searchBtn"
+            aria-label="Abrir buscador"
+            aria-expanded="false"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M10.5 3a7.5 7.5 0 105.03 13.06l3.2 3.2a1 1 0 001.42-1.42l-3.2-3.2A7.5 7.5 0 0010.5 3zm0 2a5.5 5.5 0 110 11 5.5 5.5 0 010-11z"
+              />
+            </svg>
+          </button>
+
+        
+          <div class="search" id="search" hidden>
+            <label class="sr-only" for="searchInput">Buscar</label>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Buscar obra o artista…"
+              autocomplete="off"
+            />
+          </div>
+
+
+          <button
+            class="iconbtn burger"
+            id="menuBtn"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="nav"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 7h16a1 1 0 100-2H4a1 1 0 000 2zm16 4H4a1 1 0 100 2h16a1 1 0 100-2zm0 6H4a1 1 0 100 2h16a1 1 0 100-2z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="nav" aria-label="Navegación principal" id="nav">
+          <a class="nav__link" href="salas.html">SALAS</a>
+          <a class="nav__link" href="contexto.html">CONTEXTO</a>
+        </nav>
+      </div>
+    </header>
+
+    <section
+      class="gallery"
+      id="gallery"
+      aria-label="Galería Pop Art por scroll"
+    >
+      <div class="sticky" id="sticky">
+        <div class="track" id="track"></div>
+
+        <div class="hud" aria-hidden="true">
+          <span class="hudText">Haz scroll / arrastra</span>
+        </div>
+
+      
+        <div class="endActions" id="endActions" aria-hidden="true">
+          <button class="endBtn primary" id="btnContinue" type="button">
+            Continuar recorrido
+          </button>
+          <button class="endBtn" id="btnExit" type="button">
+            Salir del recorrido
+          </button>
+        </div>
+
+        <div class="loadingLayer" id="loadingLayer" aria-hidden="false">
+          <div class="loadingCard">
+            <div class="spinner"></div>
+            <div>
+              <div class="loadingTitle" id="loadingTitle">
+                Cargando obras Pop Art…
+              </div>
+              <div class="loadingSub" id="loadingSub">AIC + Harvard</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="modalOverlay" id="modalOverlay" aria-hidden="true">
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="mTitle"
+      >
+        <button class="modalClose" id="modalClose" aria-label="Cerrar">
+          ×
+        </button>
+
+        <div class="modalGrid">
+          <div class="modalMedia">
+            <img id="mImg" alt="" />
+          </div>
+
+          <div class="modalInfo">
+            <div class="modalKicker">POP ART</div>
+            <h2 class="modalTitle" id="mTitle">—</h2>
+            <div class="modalMeta" id="mMeta">—</div>
+
+            <div class="modalFacts" id="mFacts"></div>
+
+            <div class="modalActions">
+              <a class="btn" id="mAic" target="_blank" rel="noopener"
+                >Ver en AIC</a
+              >
+              <a class="btn ghost" id="mHarvard" target="_blank" rel="noopener"
+                >Ver en Harvard</a
+              >
+              <button class="btn ghost" id="mCloseBtn" type="button">
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script defer src="./js/script.js"></script>
+    <script defer src="./js/SalaConceptual.js"></script>
+  </body>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h3 class="footer-title">M·DAC</h3>
+        <p class="footer-text">Museo de Arte Contemporáneo</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-subtitle">Visita</h4>
+        <ul class="footer-links">
+          <li><a href="contexto.html">Contexto</a></li>
+          <li><a href="salas.html">Salas</a></li>
+          <li><a href="index.html#coleccion">Colección</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-subtitle">Contacto</h4>
+        <ul class="footer-meta">
+          <li>Madrid, España</li>
+          <li><a href="mailto:info@mdac.com">info@mdac.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> M·DAC</span>
+      <span class="footer-sep">·</span>
+      <a
+        class="footer-smalllink"
+        href="https://www.artic.edu/"
+        target="_blank"
+        rel="noopener"
+        >API AIC</a
+      >
+      <span class="footer-sep">·</span>
+      <a
+        class="footer-smalllink"
+        href="https://harvardartmuseums.org/"
+        target="_blank"
+        rel="noopener"
+        >API Harvard</a
+      >
+    </div>
+  </footer>
+</html>
