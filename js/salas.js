@@ -7,12 +7,10 @@ let rotationY = 0;
 let rotationX = -10;
 let radius = 0;
 
-/* 🔑 Radio basado en el ancho REAL de la escena */
+/* Radio basado en el ancho real de la escena */
 function calculateRadius() {
   const scene = document.querySelector('.scene');
   const sceneWidth = scene.offsetWidth;
-
-  // el radio es proporcional al tamaño del contenedor
   return sceneWidth * 0.45;
 }
 
@@ -58,5 +56,23 @@ window.addEventListener('resize', () => {
   updateTransform();
 });
 
+/* Navegación por clic */
+const pageLinks = [
+  "contexto.html",
+  "index.html",
+  "sala-verde.html",
+  "sala-amarilla.html",
+  "sala-morada.html",
+  "sala-naranja.html"
+];
+
+items.forEach((item, index) => {
+  item.addEventListener('click', () => {
+    window.location.href = pageLinks[index];
+  });
+});
+
 layoutItems();
 updateTransform();
+
+
