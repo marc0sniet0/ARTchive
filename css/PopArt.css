@@ -11,21 +11,25 @@
   --gap: 70px;
   --color-textos: #000000;
   --color-fondo: #ffffff;
+
+  --hoverPink: rgb(205, 62, 134);
 }
 
 * {
   box-sizing: border-box;
 }
+
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
     Helvetica, Arial;
-  background-color: var(color-fondo);
-  color: var(color-textos);
+  background-color: var(--color-fondo); /* ✅ fix */
+  color: var(--color-textos); /* ✅ fix */
   overflow-x: hidden;
 }
 
@@ -76,6 +80,7 @@ body {
   inset: 0;
   overflow: hidden;
 }
+
 .artCard img {
   width: 100%;
   height: 100%;
@@ -185,11 +190,11 @@ body {
   font: inherit;
 }
 .endBtn.primary {
-  background: rgba(58, 122, 254, 0.22);
+  color: rgb(20, 89, 207);  
   border-color: rgba(58, 122, 254, 0.35);
 }
 
-/* LOADING */
+
 .loadingLayer {
   position: absolute;
   inset: 0;
@@ -236,7 +241,10 @@ body {
   margin-top: 4px;
 }
 
-/* MODAL */
+/* =========================
+   MODAL · LIGHT + HOVER ROSA
+   ========================= */
+
 .modalOverlay {
   position: fixed;
   inset: 0;
@@ -244,7 +252,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 22px;
-  background: rgba(0, 0, 0, 0.62);
+  background: rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(10px);
   z-index: 999;
 }
@@ -254,14 +262,16 @@ body {
 
 .modal {
   width: min(1080px, 100%);
+  max-height: 90vh;
   border-radius: 22px;
-  border: 1px solid rgba(246, 246, 244, 0.14);
-  background: rgba(18, 18, 18, 0.86);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   box-shadow: var(--shadow);
   overflow: hidden;
   position: relative;
 }
 
+/* close */
 .modalClose {
   position: absolute;
   top: 12px;
@@ -269,17 +279,25 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 999px;
-  border: 1px solid rgba(246, 246, 244, 0.16);
-  background: rgba(0, 0, 0, 0.18);
-  color: var(--fg);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.85);
+  color: #111;
   font-size: 24px;
   cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.modalClose:hover {
+  color: var(--hoverPink);
+  transform: scale(1.05);
+  border-color: rgba(205, 62, 134, 0.45);
+  box-shadow: 0 10px 26px rgba(205, 62, 134, 0.18);
 }
 
 .modalGrid {
   display: grid;
   grid-template-columns: 1.2fr 0.9fr;
-  min-height: 560px;
+  max-height: 90vh;
 }
 
 .modalMedia {
@@ -287,6 +305,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 18px;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
 }
 .modalMedia img {
   width: 100%;
@@ -296,24 +315,30 @@ body {
 }
 
 .modalInfo {
-  padding: 22px;
+  padding: 22px 22px 26px;
+  overflow-y: auto;
 }
+
 .modalKicker {
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.55);
 }
 .modalTitle {
   margin: 10px 0 0;
   font-size: 22px;
   line-height: 1.15;
   font-weight: 900;
+  color: rgba(0, 0, 0, 0.88);
 }
 .modalMeta {
   margin-top: 8px;
-  color: var(--muted);
   font-size: 13px;
+  color: rgba(0, 0, 0, 0.55);
 }
+
+/* facts blancos */
 .modalFacts {
   margin-top: 16px;
   display: grid;
@@ -322,58 +347,145 @@ body {
 .fact {
   padding: 10px 12px;
   border-radius: 14px;
-  background: var(--color-fondo);
-  border: 1px solid rgba(246, 246, 244, 0.1);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+.fact:hover {
+  border-color: var(--hoverPink);
+  box-shadow: 0 8px 24px rgba(205, 62, 134, 0.18);
+  transform: translateY(-1px);
 }
 .factLabel {
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--muted2);
+  color: rgba(0, 0, 0, 0.45);
 }
 .factValue {
   margin-top: 6px;
   font-size: 13px;
-  color: rgba(246, 246, 244, 0.86);
+  color: rgba(0, 0, 0, 0.8);
   line-height: 1.45;
 }
+
 .modalActions {
   margin-top: 18px;
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
-.btn {
+
+.btn  {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 12px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(246, 246, 244, 0.14);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--fg);
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  background: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.8);
   text-decoration: none;
   cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease,
+    box-shadow 0.2s ease, transform 0.2s ease;
+}
+.btn:hover {
+  color: var(--hoverPink);
+  border-color: var(--hoverPink);
+  box-shadow: 0 8px 24px rgba(205, 62, 134, 0.18);
+  transform: translateY(-1px);
 }
 .btn.ghost {
   background: transparent;
-  border-color: rgba(246, 246, 244, 0.1);
-  color: var(--muted);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: rgba(0, 0, 0, 0.55);
 }
+.btn.ghost:hover {
+  color: var(--hoverPink);
+  border-color: var(--hoverPink);
+}
+
+
+.endActions {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  z-index: 25;
+}
+
+.endActions.isVisible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+
+.endBtn {
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  background: rgba(255, 255, 255, 0.95);
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  font: inherit;
+  transition: 
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.endBtn:hover {
+  color: rgb(205, 62, 134);
+  border-color: rgb(205, 62, 134);
+  box-shadow: 0 8px 24px rgba(205, 62, 134, 0.18);
+  transform: translateY(-1px);
+}
+
+
+.endBtn.primary {
+  font-weight: 600;
+}
+
+
+.endBtn:focus-visible {
+  outline: none;
+  border-color: rgb(205, 62, 134);
+  box-shadow: 0 0 0 3px rgba(205, 62, 134, 0.25);
+}
+
+
 
 @media (max-width: 980px) {
   :root {
     --gap: 26px;
   }
+
   .artCard {
     width: 84vw;
     height: 52vh;
   }
+
   .modalGrid {
     grid-template-columns: 1fr;
   }
+
   .modalMedia {
     border-right: none;
-    border-bottom: 1px solid rgba(246, 246, 244, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   }
 }
