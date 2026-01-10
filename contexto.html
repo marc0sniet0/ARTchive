@@ -8,69 +8,65 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/contexto.css" />
   </head>
-  
+
   <body>
     <header class="topbar" role="banner">
-        <div class="topbar__main">
-  
-          <!-- LOGO -->
-          <a class="brand" href="index.html" aria-label="Ir a inicio">
-            <img src="media/logo_artchive.svg" alt="Logo" class="brand__logo" />
-          </a>
-  
-          <!-- ACCIONES: LUPA + INPUT + MENÚ -->
-          <div class="actions">
-  
-            <!-- LUPA -->
-            <button
-              class="iconbtn"
-              id="searchBtn"
-              aria-label="Abrir buscador"
-              aria-expanded="false"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M10.5 3a7.5 7.5 0 105.03 13.06l3.2 3.2a1 1 0 001.42-1.42l-3.2-3.2A7.5 7.5 0 0010.5 3zm0 2a5.5 5.5 0 110 11 5.5 5.5 0 010-11z"
-                />
-              </svg>
-            </button>
-  
-            <!-- INPUT DE BÚSQUEDA (APARECE AL LADO DE LA LUPA EN DESKTOP) -->
-            <div class="search" id="search" hidden>
-              <label class="sr-only" for="searchInput">Buscar</label>
-              <input
-                id="searchInput"
-                type="search"
-                placeholder="Buscar obra o artista…"
-                autocomplete="off"
+      <div class="topbar__main">
+        <!-- LOGO -->
+        <a class="brand" href="index.html" aria-label="Ir a inicio">
+          <img src="media/logo_artchive.svg" alt="Logo" class="brand__logo" />
+        </a>
+
+        <!-- ACCIONES: LUPA + INPUT + MENÚ -->
+        <div class="actions">
+          <!-- LUPA -->
+          <button
+            class="iconbtn"
+            id="searchBtn"
+            aria-label="Abrir buscador"
+            aria-expanded="false"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M10.5 3a7.5 7.5 0 105.03 13.06l3.2 3.2a1 1 0 001.42-1.42l-3.2-3.2A7.5 7.5 0 0010.5 3zm0 2a5.5 5.5 0 110 11 5.5 5.5 0 010-11z"
               />
-            </div>
-  
-            <!-- MENÚ HAMBURGUESA -->
-            <button
-              class="iconbtn burger"
-              id="menuBtn"
-              aria-label="Abrir menú"
-              aria-expanded="false"
-              aria-controls="nav"
-            >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  d="M4 7h16a1 1 0 100-2H4a1 1 0 000 2zm16 4H4a1 1 0 100 2h16a1 1 0 100-2zm0 6H4a1 1 0 100 2h16a1 1 0 100-2z"
-                />
-              </svg>
-            </button>
-  
+            </svg>
+          </button>
+
+          <!-- INPUT DE BÚSQUEDA (APARECE AL LADO DE LA LUPA EN DESKTOP) -->
+          <div class="search" id="search" hidden>
+            <label class="sr-only" for="searchInput">Buscar</label>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Buscar obra o artista…"
+              autocomplete="off"
+            />
           </div>
-  
-          <!-- NAVEGACIÓN PRINCIPAL -->
-          <nav class="nav" aria-label="Navegación principal" id="nav">
-            <a class="nav__link" href="salas.html">SALAS</a>
-            <a class="nav__link" href="contexto.html">CONTEXTO</a>
-          </nav>
-  
+
+          <!-- MENÚ HAMBURGUESA -->
+          <button
+            class="iconbtn burger"
+            id="menuBtn"
+            aria-label="Abrir menú"
+            aria-expanded="false"
+            aria-controls="nav"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M4 7h16a1 1 0 100-2H4a1 1 0 000 2zm16 4H4a1 1 0 100 2h16a1 1 0 100-2zm0 6H4a1 1 0 100 2h16a1 1 0 100-2z"
+              />
+            </svg>
+          </button>
         </div>
-      </header>
+
+        <!-- NAVEGACIÓN PRINCIPAL -->
+        <nav class="nav" aria-label="Navegación principal" id="nav">
+          <a class="nav__link" href="salas.html">SALAS</a>
+          <a class="nav__link" href="contexto.html">CONTEXTO</a>
+        </nav>
+      </div>
+    </header>
     <div class="contexto-info">
       <h2>
         <p>
@@ -80,33 +76,36 @@
           hasta el Arte Digital.
         </p>
         <p>
-          El visitante puede avanzar por las salas y explorar las obras. El
-          recorrido no es lineal ni cerrado: se puede avanzar, volver o cambiar
-          de sala en cualquier momento. Este espacio está pensado para ser
-          explorado a tu propio ritmo.
+          Este espacio está pensado para ser explorado a tu propio ritmo. El
+          visitante puede avanzar a través del recorrido propuesto, o elegir la
+          sala que más le apetezca descurbir. ARTchive no es lineal ni cerrado:
+          se puede avanzar, volver o cambiar de sala en cualquier momento.
         </p>
       </h2>
     </div>
 
     <div class="contexto-galeria">
       <div class="contexto-item">
-        <div class="imagen-con-overlay">
+        <a href="Minimalismo.html">
           <img src="media/pichipichipitch.jpg" alt="imgrecorrido" />
-          <div class="overlay-text">Explora el recorrido</div>
-        </div>
-        <p>RECORRIDO</p>
+
+          <p>EXPLORA EL RECORRIDO</p>
+        </a>
       </div>
 
       <div class="contexto-item">
-        <div class="imagen-con-overlay">
+        <a href="salas.html">
           <img src="media/tailorswif.png" alt="imgrecorrido" />
-          <div class="overlay-text">Descubre las salas</div>
-        </div>
-        <p>SALAS</p>
+
+          <p>DESCUBRE LAS SALAS</p>
+        </a>
       </div>
     </div>
 
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     <script defer src="./js/script.js"></script>
