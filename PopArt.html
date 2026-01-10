@@ -7,14 +7,11 @@
     <link rel="icon" href="media/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="./css/PopArt.css" />
-   
-
   </head>
 
   <body>
     <header class="topbar" role="banner">
       <div class="topbar__main">
-
         <!-- LOGO -->
         <a class="brand" href="index.html" aria-label="Ir a inicio">
           <img src="media/logo_artchive.svg" alt="Logo" class="brand__logo" />
@@ -22,7 +19,6 @@
 
         <!-- ACCIONES: LUPA + INPUT + MENÚ -->
         <div class="actions">
-
           <!-- LUPA -->
           <button
             class="iconbtn"
@@ -62,7 +58,6 @@
               />
             </svg>
           </button>
-
         </div>
 
         <!-- NAVEGACIÓN PRINCIPAL -->
@@ -70,11 +65,8 @@
           <a class="nav__link" href="salas.html">SALAS</a>
           <a class="nav__link" href="contexto.html">CONTEXTO</a>
         </nav>
-
       </div>
     </header>
-
-
 
     <section
       class="gallery"
@@ -151,10 +143,58 @@
         </div>
       </div>
     </div>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     <script defer src="./js/script.js"></script>
     <script defer src="./js/PopArt.js"></script>
   </body>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h3 class="footer-title">M·DAC</h3>
+        <p class="footer-text">Museo de Arte Contemporáneo</p>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-subtitle">Visita</h4>
+        <ul class="footer-links">
+          <li><a href="contexto.html">Contexto</a></li>
+          <li><a href="salas.html">Salas</a></li>
+          <li><a href="index.html#coleccion">Colección</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-subtitle">Contacto</h4>
+        <ul class="footer-meta">
+          <li>Madrid, España</li>
+          <li><a href="mailto:info@mdac.com">info@mdac.com</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> M·DAC</span>
+      <span class="footer-sep">·</span>
+      <a
+        class="footer-smalllink"
+        href="https://www.artic.edu/"
+        target="_blank"
+        rel="noopener"
+        >API AIC</a
+      >
+      <span class="footer-sep">·</span>
+      <a
+        class="footer-smalllink"
+        href="https://harvardartmuseums.org/"
+        target="_blank"
+        rel="noopener"
+        >API Harvard</a
+      >
+    </div>
+  </footer>
 </html>
