@@ -31,25 +31,38 @@ let lastFocusedEl = null;
 
 const usedAicIds = new Set();
 const usedImageIds = new Set();
-const CURATED_MINIMALISM = [
-  { artist: "Donald Judd", title: "Untitled" },
-  { artist: "Donald Judd", title: "Stack" },
-  { artist: "Dan Flavin", title: "Untitled (to you, Heiner, with admiration and affection)" },
-  { artist: "Dan Flavin", title: "monument for V. Tatlin" },
-  { artist: "Agnes Martin", title: "Untitled" },
-  { artist: "Agnes Martin", title: "The Tree" },
-  { artist: "Sol LeWitt", title: "Wall Drawing" },
-  { artist: "Sol LeWitt", title: "Wall Drawing #65" },
-  { artist: "Carl Andre", title: "Equivalent VIII" },
-  { artist: "Carl Andre", title: "144 Tin Square" },
-  { artist: "Robert Morris", title: "Untitled (L-Beams)" },
-  { artist: "Robert Ryman", title: "Untitled" },
-  { artist: "Anne Truitt", title: "A Wall for Apricots" },
-  { artist: "Frank Stella", title: "Die Fahne Hoch!" },
-  { artist: "Frank Stella", title: "Harran II" },
-  { artist: "Ellsworth Kelly", title: "Red Blue Green" },
-  { artist: "Ellsworth Kelly", title: "Blue Green" },
-  { artist: "Eva Hesse", title: "Accession II" }
+const CURATED_DIGITAL_ART = [
+  { artist: "Cory Arcangel", title: "Super Mario Clouds" },
+  { artist: "Cory Arcangel", title: "I Shot Andy Warhol" },
+
+  { artist: "Nam June Paik", title: "Electronic Superhighway" },
+  { artist: "Nam June Paik", title: "TV Buddha" },
+
+  { artist: "Bill Viola", title: "The Crossing" },
+  { artist: "Bill Viola", title: "The Greeting" },
+
+  { artist: "Pipilotti Rist", title: "Ever Is Over All" },
+  { artist: "Pipilotti Rist", title: "Open My Glade" },
+
+  { artist: "Rafael Lozano-Hemmer", title: "Pulse Room" },
+  { artist: "Rafael Lozano-Hemmer", title: "33 Questions per Minute" },
+
+  { artist: "Jenny Holzer", title: "Truisms" },
+  { artist: "Jenny Holzer", title: "Protect Protect" },
+
+  { artist: "Hito Steyerl", title: "How Not to Be Seen" },
+
+  { artist: "Trevor Paglen", title: "Autonomy Cube" },
+
+  { artist: "teamLab", title: "Flowers and People" },
+  { artist: "teamLab", title: "Universe of Water Particles" },
+
+  { artist: "Harun Farocki", title: "Serious Games" },
+
+  { artist: "Laurie Anderson", title: "Chalkroom" },
+
+  { artist: "Ryoji Ikeda", title: "data.tron" },
+  { artist: "Ryoji Ikeda", title: "test pattern" }
 ];
 
 let WORKS = [];
@@ -80,7 +93,7 @@ async function fetchJSON(url){
 }
 
 async function aicSearchMany({ artist, title }, limit = 10){
-  const q = `${title} ${artist} minimalist minimalism`;
+  const q = `${title} ${artist} video digital new media installation`;
   const url = `${AIC_BASE}/artworks/search?q=${encodeURIComponent(q)}&limit=${limit}&fields=id,title,artist_title,date_display,image_id,medium_display,style_title,classification_titles,place_of_origin`;
   const json = await fetchJSON(url);
   return json?.data || [];
@@ -98,27 +111,23 @@ function scoreCandidate(candidate, wantArtist, wantTitle){
   const a = normalize(candidate?.artist_title);
   const style = normalize(candidate?.style_title);
   const cls = Array.isArray(candidate?.classification_titles) ? normalize(candidate.classification_titles.join(" ")) : "";
+  const med = normalize(candidate?.medium_display);
 
   let score = 0;
   if (candidate?.image_id) score += 5;
   if (a && wantArtist && a.includes(wantArtist)) score += 7;
-  const wantTn = normalize(wantTitle);
-  const isUntitled = wantTn === "untitled" || wantTn.startsWith("untitled");
-  if (!isUntitled && t && wantTn && (t.includes(wantTn) || wantTn.includes(t))) score += 8;
-  if (isUntitled && t.includes("untitled")) score += 2;
-
- 
-  if (style.includes("minimal") || style.includes("post-minimal") || style.includes("contemporary")) score += 2;
-  if (cls.includes("sculpture") || cls.includes("installation") || cls.includes("painting") || cls.includes("drawing")) score += 1;
+  if (t && wantTitle && (t.includes(wantTitle) || wantTitle.includes(t))) score += 8;
+  if (style.includes("digital") || style.includes("new media") || style.includes("contemporary")) score += 2;
+  if (cls.includes("installation") || cls.includes("media") || cls.includes("video") || cls.includes("film")) score += 2;
+  if (med.includes("video") || med.includes("digital") || med.includes("screen") || med.includes("computer")) score += 1;
 
   return score;
 }
 function pickBestNonDuplicate(candidates, { artist, title }){
   const wantA = normalize(artist);
   const wantT = normalize(title);
-
   const ranked = [...candidates]
-    .filter(c => c?.image_id) 
+    .filter(c => c?.image_id)
     .map(c => ({ c, s: scoreCandidate(c, wantA, wantT) }))
     .sort((x,y) => y.s - x.s)
     .map(x => x.c);
@@ -206,7 +215,7 @@ async function buildArtwork(item){
     hCentury: harvard?.century || null,
     hLink: harvardObjectLink(harvard),
 
-    fallbackDesc: "Obra representativa del Minimalismo."
+    fallbackDesc: "Obra representativa del Arte Digital / Nuevos Medios."
   };
 
   cache.set(key, unified);
@@ -223,7 +232,7 @@ function workCardHTML(w, idx){
         <img draggable="false" loading="eager" src="${w.image}" alt="${title}">
       </div>
       <div class="artMeta">
-        <div class="kicker">Minimalismo</div>
+        <div class="kicker">Arte digital</div>
         <h3>${title}</h3>
         <p>${artist}</p>
       </div>
@@ -253,7 +262,7 @@ function openModal(rec){
   const artist = safe(rec.hArtist || rec.aicArtist || rec.artist);
   const dated = firstNonEmpty(rec.hDate, rec.aicDate);
   const technique = firstNonEmpty(rec.hTechnique, rec.hMedium, rec.aicMedium);
-  const movement = firstNonEmpty(rec.hPeriod, rec.aicStyle, rec.hCentury, "Minimalismo");
+  const movement = firstNonEmpty(rec.hPeriod, rec.aicStyle, rec.hCentury, "Arte digital");
   const classification = firstNonEmpty(rec.hClass, rec.aicClass);
   const culture = firstNonEmpty(rec.hCulture, rec.aicOrigin);
   const desc = firstNonEmpty(rec.hDesc, rec.fallbackDesc);
@@ -553,11 +562,11 @@ async function loadWorks(){
   usedAicIds.clear();
   usedImageIds.clear();
 
-  if (loadingTitle) loadingTitle.textContent = "Cargando obras Minimalismo…";
+  if (loadingTitle) loadingTitle.textContent = "Cargando obras Arte digital…";
   if (loadingSub) loadingSub.textContent = "AIC + Harvard";
 
   const built = [];
-  for (const item of CURATED_MINIMALISM){
+  for (const item of CURATED_DIGITAL_ART){
     try{
       const rec = await buildArtwork(item);
       if (rec && rec.image) built.push(rec);

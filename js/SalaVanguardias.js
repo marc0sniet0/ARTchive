@@ -31,25 +31,25 @@ let lastFocusedEl = null;
 
 const usedAicIds = new Set();
 const usedImageIds = new Set();
-const CURATED_MINIMALISM = [
-  { artist: "Donald Judd", title: "Untitled" },
-  { artist: "Donald Judd", title: "Stack" },
-  { artist: "Dan Flavin", title: "Untitled (to you, Heiner, with admiration and affection)" },
-  { artist: "Dan Flavin", title: "monument for V. Tatlin" },
-  { artist: "Agnes Martin", title: "Untitled" },
-  { artist: "Agnes Martin", title: "The Tree" },
-  { artist: "Sol LeWitt", title: "Wall Drawing" },
-  { artist: "Sol LeWitt", title: "Wall Drawing #65" },
-  { artist: "Carl Andre", title: "Equivalent VIII" },
-  { artist: "Carl Andre", title: "144 Tin Square" },
-  { artist: "Robert Morris", title: "Untitled (L-Beams)" },
-  { artist: "Robert Ryman", title: "Untitled" },
-  { artist: "Anne Truitt", title: "A Wall for Apricots" },
-  { artist: "Frank Stella", title: "Die Fahne Hoch!" },
-  { artist: "Frank Stella", title: "Harran II" },
-  { artist: "Ellsworth Kelly", title: "Red Blue Green" },
-  { artist: "Ellsworth Kelly", title: "Blue Green" },
-  { artist: "Eva Hesse", title: "Accession II" }
+const CURATED_VANGUARDIAS = [
+  { artist: "Pablo Picasso", title: "The Old Guitarist" },
+  { artist: "Henri Matisse", title: "Bathers by a River" },
+  { artist: "Marcel Duchamp", title: "Boîte-en-valise" },
+  { artist: "Marcel Duchamp", title: "Nude Descending a Staircase" },
+  { artist: "Wassily Kandinsky", title: "Improvisation" },
+  { artist: "Kazimir Malevich", title: "Black Square" },
+  { artist: "Piet Mondrian", title: "Composition with Red Blue and Yellow" },
+  { artist: "Umberto Boccioni", title: "Unique Forms of Continuity in Space" },
+  { artist: "Gino Severini", title: "Dynamic Hieroglyphic of the Bal Tabarin" },
+  { artist: "Paul Klee", title: "Twittering Machine" },
+  { artist: "Kurt Schwitters", title: "Merz" },
+  { artist: "Man Ray", title: "Rayograph" },
+  { artist: "Giorgio de Chirico", title: "The Song of Love" },
+  { artist: "Egon Schiele", title: "Seated Woman" },
+  { artist: "Ernst Ludwig Kirchner", title: "Street, Dresden" },
+  { artist: "Filippo Tommaso Marinetti", title: "Futurist Manifesto" },
+  { artist: "El Lissitzky", title: "Proun" },
+  { artist: "Alexander Rodchenko", title: "Construction" }
 ];
 
 let WORKS = [];
@@ -80,7 +80,7 @@ async function fetchJSON(url){
 }
 
 async function aicSearchMany({ artist, title }, limit = 10){
-  const q = `${title} ${artist} minimalist minimalism`;
+  const q = `${title} ${artist} avant-garde vanguard modernism`;
   const url = `${AIC_BASE}/artworks/search?q=${encodeURIComponent(q)}&limit=${limit}&fields=id,title,artist_title,date_display,image_id,medium_display,style_title,classification_titles,place_of_origin`;
   const json = await fetchJSON(url);
   return json?.data || [];
@@ -102,14 +102,9 @@ function scoreCandidate(candidate, wantArtist, wantTitle){
   let score = 0;
   if (candidate?.image_id) score += 5;
   if (a && wantArtist && a.includes(wantArtist)) score += 7;
-  const wantTn = normalize(wantTitle);
-  const isUntitled = wantTn === "untitled" || wantTn.startsWith("untitled");
-  if (!isUntitled && t && wantTn && (t.includes(wantTn) || wantTn.includes(t))) score += 8;
-  if (isUntitled && t.includes("untitled")) score += 2;
-
- 
-  if (style.includes("minimal") || style.includes("post-minimal") || style.includes("contemporary")) score += 2;
-  if (cls.includes("sculpture") || cls.includes("installation") || cls.includes("painting") || cls.includes("drawing")) score += 1;
+  if (t && wantTitle && (t.includes(wantTitle) || wantTitle.includes(t))) score += 8;
+  if (style.includes("modern") || style.includes("avant") || style.includes("cub") || style.includes("futur") || style.includes("surreal") || style.includes("construct")) score += 2;
+  if (cls.includes("modern") || cls.includes("print") || cls.includes("drawing") || cls.includes("painting") || cls.includes("photograph")) score += 1;
 
   return score;
 }
@@ -206,7 +201,7 @@ async function buildArtwork(item){
     hCentury: harvard?.century || null,
     hLink: harvardObjectLink(harvard),
 
-    fallbackDesc: "Obra representativa del Minimalismo."
+    fallbackDesc: "Obra representativa de las Vanguardias."
   };
 
   cache.set(key, unified);
@@ -223,7 +218,7 @@ function workCardHTML(w, idx){
         <img draggable="false" loading="eager" src="${w.image}" alt="${title}">
       </div>
       <div class="artMeta">
-        <div class="kicker">Minimalismo</div>
+        <div class="kicker">Vanguardias</div>
         <h3>${title}</h3>
         <p>${artist}</p>
       </div>
@@ -253,7 +248,7 @@ function openModal(rec){
   const artist = safe(rec.hArtist || rec.aicArtist || rec.artist);
   const dated = firstNonEmpty(rec.hDate, rec.aicDate);
   const technique = firstNonEmpty(rec.hTechnique, rec.hMedium, rec.aicMedium);
-  const movement = firstNonEmpty(rec.hPeriod, rec.aicStyle, rec.hCentury, "Minimalismo");
+  const movement = firstNonEmpty(rec.hPeriod, rec.aicStyle, rec.hCentury, "Vanguardias");
   const classification = firstNonEmpty(rec.hClass, rec.aicClass);
   const culture = firstNonEmpty(rec.hCulture, rec.aicOrigin);
   const desc = firstNonEmpty(rec.hDesc, rec.fallbackDesc);
@@ -553,11 +548,11 @@ async function loadWorks(){
   usedAicIds.clear();
   usedImageIds.clear();
 
-  if (loadingTitle) loadingTitle.textContent = "Cargando obras Minimalismo…";
+  if (loadingTitle) loadingTitle.textContent = "Cargando obras Vanguardias…";
   if (loadingSub) loadingSub.textContent = "AIC + Harvard";
 
   const built = [];
-  for (const item of CURATED_MINIMALISM){
+  for (const item of CURATED_VANGUARDIAS){
     try{
       const rec = await buildArtwork(item);
       if (rec && rec.image) built.push(rec);
