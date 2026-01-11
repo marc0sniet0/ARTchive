@@ -28,20 +28,29 @@ body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
     Helvetica, Arial;
-  background-color: var(--color-fondo); /* ✅ fix */
-  color: var(--color-textos); /* ✅ fix */
+  background-color: var(--color-fondo);
+  color: var(--color-textos);
   overflow-x: hidden;
 }
 .titulo-sala {
   margin: 120px 0 40px;
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
   text-align: center;
   color: var(--color-textos);
   z-index: 1002;
 }
+.about-sala {
+  margin-left: 3rem;
+  margin-right: 3rem;
+
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-textos);
+  text-align: center;
+}
 .gallery {
-  height: 320vh;
+  height: 280vh;
   position: relative;
 }
 
