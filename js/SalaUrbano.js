@@ -662,3 +662,39 @@ function bind() {
 
 bind();
 loadWorks().then(() => tick());
+
+function focusWorkFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const idx = Number(params.get("obra"));
+  if (Number.isNaN(idx)) return;
+
+  const tryFocus = setInterval(() => {
+    const card = document.querySelector(`.artCard[data-idx="${idx}"]`);
+    if (!card) return;
+
+    clearInterval(tryFocus);
+
+    const cardRect = card.getBoundingClientRect();
+    const cardCenter = cardRect.left + cardRect.width / 2;
+    const viewportCenter = window.innerWidth / 2;
+    const deltaX = cardCenter - viewportCenter;
+
+    const mx = maxX();
+    const { total } = getScrollProgress();
+
+    if (mx > 0 && total > 0) {
+      const desiredX = currentX - deltaX;
+      const clampedX = clamp(desiredX, -mx, 0);
+      const p = (-clampedX) / mx;
+
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      const targetY = sectionTop + p * total;
+
+      window.scrollTo({ top: targetY, behavior: "smooth" });
+    }
+
+    // Si quieres abrir el modal automáticamente:
+    // openModal(WORKS[idx]);
+
+  }, 100);
+}

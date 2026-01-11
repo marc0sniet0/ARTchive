@@ -67,35 +67,29 @@ document.addEventListener("keydown", (e) => {
 ----------------------------- */
 function initAutocomplete() {
   const availableTags = [
-    "ActionScript",
-    "AppleScript",
-    "Asp",
-    "BASIC",
-    "C",
-    "C++",
-    "Clojure",
-    "COBOL",
-    "ColdFusion",
-    "Erlang",
-    "Fortran",
-    "Groovy",
-    "Haskell",
-    "Java",
-    "JavaScript",
-    "Lisp",
-    "Perl",
-    "PHP",
-    "Python",
-    "Ruby",
-    "Scala",
-    "Scheme"
+    "Whaam!",
+    "Drowning Girl",
+    "Look Mickey",
+    "Crying Girl",
+    "Marilyn",
+    "Campbell's Soup",
+    "Brillo Box",
+    "Flowers",
+    "LOVE",
+    "Flag"
   ];
 
   const urls = {
-    "BASIC": "basic.html",
-    "JavaScript": "https://tuweb.com/js",
-    "Python": "https://tuweb.com/python"
-    // Añade más si quieres
+    "Whaam!": "./PopArt.html?obra=0",
+    "Drowning Girl": "./PopArt.html?obra=1",
+    "Look Mickey": "./PopArt.html?obra=2",
+    "Crying Girl": "./PopArt.html?obra=3",
+    "Marilyn": "./PopArt.html?obra=4",
+    "Campbell's Soup": "./PopArt.html?obra=5",
+    "Brillo Box": "./PopArt.html?obra=6",
+    "Flowers": "./PopArt.html?obra=7",
+    "LOVE": "./PopArt.html?obra=8",
+    "Flag": "./PopArt.html?obra=9"
   };
 
   $("#searchInput").autocomplete({
@@ -112,6 +106,3 @@ function initAutocomplete() {
     }
   });
 }
-
-
-
