@@ -12,6 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Elimina del DOM después del fade-out
     setTimeout(() => {
       loadingScreen.remove();
-    }, 500); // coincide con el transition del CSS
-  }, 2000);
+    }, 800); // coincide con el transition del CSS
+  }, 3500);
 });
