@@ -67,6 +67,7 @@ document.addEventListener("keydown", (e) => {
 ----------------------------- */
 function initAutocomplete() {
   const availableTags = [
+    // POP ART
     "Whaam!",
     "Drowning Girl",
     "Look Mickey",
@@ -76,10 +77,96 @@ function initAutocomplete() {
     "Brillo Box",
     "Flowers",
     "LOVE",
-    "Flag"
+    "Flag",
+
+    // MINIMALISMO
+    "Untitled (Donald Judd)",
+    "Stack",
+    "Untitled (to you, Heiner, with admiration and affection)",
+    "monument for V. Tatlin",
+    "Untitled (Agnes Martin)",
+    "The Tree",
+    "Wall Drawing",
+    "Wall Drawing #65",
+    "Equivalent VIII",
+    "144 Tin Square",
+    "Untitled (L-Beams)",
+    "Untitled (Robert Ryman)",
+    "A Wall for Apricots",
+    "Die Fahne Hoch!",
+    "Harran II",
+    "Red Blue Green",
+    "Blue Green",
+    "Accession II",
+
+    // ARTE URBANO
+    "Girl with Balloon",
+    "Love is in the Air",
+    "Obey Giant",
+    "Marianne",
+    "We the Youth",
+    "Nobody likes me",
+    "Don’t Shoot",
+    "Chuuuuttt!",
+
+    // VANGUARDIAS
+    "The Old Guitarist",
+    "Bathers by a River",
+    "Boîte-en-valise",
+    "Nude Descending a Staircase",
+    "Improvisation",
+    "Black Square",
+    "Composition with Red Blue and Yellow",
+    "Unique Forms of Continuity in Space",
+    "Dynamic Hieroglyphic of the Bal Tabarin",
+    "Twittering Machine",
+    "Merz",
+    "Rayograph",
+    "The Song of Love",
+    "Seated Woman",
+    "Street, Dresden",
+    "Futurist Manifesto",
+    "Proun",
+    "Construction",
+
+    // ARTE CONCEPTUAL
+    "Have Me Feed Me Hug Me Love Me Need Me",
+    "Untitled (5-Part Progression)",
+    "3-Way Fibonacci Progression",
+    "Wall Drawing #128 (Ten Thousand Random Not Straight Lines)",
+    "Untitled (C-4)",
+    "Statement",
+    "Achrome",
+    "Today Series, \"Tuesday\"",
+    "Seated in a Bathtub",
+    "Artist's Shit",
+    "Fat Chair",
+
+    // ARTE DIGITAL
+    "Super Mario Clouds",
+    "I Shot Andy Warhol",
+    "Electronic Superhighway",
+    "TV Buddha",
+    "The Crossing",
+    "The Greeting",
+    "Ever Is Over All",
+    "Open My Glade",
+    "Pulse Room",
+    "33 Questions per Minute",
+    "Truisms",
+    "Protect Protect",
+    "How Not to Be Seen",
+    "Autonomy Cube",
+    "Flowers and People",
+    "Universe of Water Particles",
+    "Serious Games",
+    "Chalkroom",
+    "data.tron",
+    "test pattern"
   ];
 
   const urls = {
+    // POP ART
     "Whaam!": "./PopArt.html?obra=0",
     "Drowning Girl": "./PopArt.html?obra=1",
     "Look Mickey": "./PopArt.html?obra=2",
@@ -89,7 +176,92 @@ function initAutocomplete() {
     "Brillo Box": "./PopArt.html?obra=6",
     "Flowers": "./PopArt.html?obra=7",
     "LOVE": "./PopArt.html?obra=8",
-    "Flag": "./PopArt.html?obra=9"
+    "Flag": "./PopArt.html?obra=9",
+
+    // MINIMALISMO
+    "Untitled (Donald Judd)": "./SalaMinimalismo.html?obra=0",
+    "Stack": "./SalaMinimalismo.html?obra=1",
+    "Untitled (to you, Heiner, with admiration and affection)": "./SalaMinimalismo.html?obra=2",
+    "monument for V. Tatlin": "./SalaMinimalismo.html?obra=3",
+    "Untitled (Agnes Martin)": "./SalaMinimalismo.html?obra=4",
+    "The Tree": "./SalaMinimalismo.html?obra=5",
+    "Wall Drawing": "./SalaMinimalismo.html?obra=6",
+    "Wall Drawing #65": "./SalaMinimalismo.html?obra=7",
+    "Equivalent VIII": "./SalaMinimalismo.html?obra=8",
+    "144 Tin Square": "./SalaMinimalismo.html?obra=9",
+    "Untitled (L-Beams)": "./SalaMinimalismo.html?obra=10",
+    "Untitled (Robert Ryman)": "./SalaMinimalismo.html?obra=11",
+    "A Wall for Apricots": "./SalaMinimalismo.html?obra=12",
+    "Die Fahne Hoch!": "./SalaMinimalismo.html?obra=13",
+    "Harran II": "./SalaMinimalismo.html?obra=14",
+    "Red Blue Green": "./SalaMinimalismo.html?obra=15",
+    "Blue Green": "./SalaMinimalismo.html?obra=16",
+    "Accession II": "./SalaMinimalismo.html?obra=17",
+
+    // ARTE URBANO
+    "Girl with Balloon": "./SalaUrbano.html?obra=0",
+    "Love is in the Air": "./SalaUrbano.html?obra=1",
+    "Obey Giant": "./SalaUrbano.html?obra=2",
+    "Marianne": "./SalaUrbano.html?obra=3",
+    "We the Youth": "./SalaUrbano.html?obra=4",
+    "Nobody likes me": "./SalaUrbano.html?obra=5",
+    "Don’t Shoot": "./SalaUrbano.html?obra=6",
+    "Chuuuuttt!": "./SalaUrbano.html?obra=7",
+
+    // VANGUARDIAS
+    "The Old Guitarist": "./SalaVanguardias.html?obra=0",
+    "Bathers by a River": "./SalaVanguardias.html?obra=1",
+    "Boîte-en-valise": "./SalaVanguardias.html?obra=2",
+    "Nude Descending a Staircase": "./SalaVanguardias.html?obra=3",
+    "Improvisation": "./SalaVanguardias.html?obra=4",
+    "Black Square": "./SalaVanguardias.html?obra=5",
+    "Composition with Red Blue and Yellow": "./SalaVanguardias.html?obra=6",
+    "Unique Forms of Continuity in Space": "./SalaVanguardias.html?obra=7",
+    "Dynamic Hieroglyphic of the Bal Tabarin": "./SalaVanguardias.html?obra=8",
+    "Twittering Machine": "./SalaVanguardias.html?obra=9",
+    "Merz": "./SalaVanguardias.html?obra=10",
+    "Rayograph": "./SalaVanguardias.html?obra=11",
+    "The Song of Love": "./SalaVanguardias.html?obra=12",
+    "Seated Woman": "./SalaVanguardias.html?obra=13",
+    "Street, Dresden": "./SalaVanguardias.html?obra=14",
+    "Futurist Manifesto": "./SalaVanguardias.html?obra=15",
+    "Proun": "./SalaVanguardias.html?obra=16",
+    "Construction": "./SalaVanguardias.html?obra=17",
+
+    // ARTE CONCEPTUAL
+    "Have Me Feed Me Hug Me Love Me Need Me": "./SalaConceptual.html?obra=0",
+    "Untitled (5-Part Progression)": "./SalaConceptual.html?obra=1",
+    "3-Way Fibonacci Progression": "./SalaConceptual.html?obra=2",
+    "Wall Drawing #128 (Ten Thousand Random Not Straight Lines)": "./SalaConceptual.html?obra=3",
+    "Untitled (C-4)": "./SalaConceptual.html?obra=4",
+    "Statement": "./SalaConceptual.html?obra=5",
+    "Achrome": "./SalaConceptual.html?obra=6",
+    "Today Series, \"Tuesday\"": "./SalaConceptual.html?obra=7",
+    "Seated in a Bathtub": "./SalaConceptual.html?obra=8",
+    "Artist's Shit": "./SalaConceptual.html?obra=9",
+    "Fat Chair": "./SalaConceptual.html?obra=10",
+
+    // ARTE DIGITAL
+    "Super Mario Clouds": "./SalaDigital.html?obra=0",
+    "I Shot Andy Warhol": "./SalaDigital.html?obra=1",
+    "Electronic Superhighway": "./SalaDigital.html?obra=2",
+    "TV Buddha": "./SalaDigital.html?obra=3",
+    "The Crossing": "./SalaDigital.html?obra=4",
+    "The Greeting": "./SalaDigital.html?obra=5",
+    "Ever Is Over All": "./SalaDigital.html?obra=6",
+    "Open My Glade": "./SalaDigital.html?obra=7",
+    "Pulse Room": "./SalaDigital.html?obra=8",
+    "33 Questions per Minute": "./SalaDigital.html?obra=9",
+    "Truisms": "./SalaDigital.html?obra=10",
+    "Protect Protect": "./SalaDigital.html?obra=11",
+    "How Not to Be Seen": "./SalaDigital.html?obra=12",
+    "Autonomy Cube": "./SalaDigital.html?obra=13",
+    "Flowers and People": "./SalaDigital.html?obra=14",
+    "Universe of Water Particles": "./SalaDigital.html?obra=15",
+    "Serious Games": "./SalaDigital.html?obra=16",
+    "Chalkroom": "./SalaDigital.html?obra=17",
+    "data.tron": "./SalaDigital.html?obra=18",
+    "test pattern": "./SalaDigital.html?obra=19"
   };
 
   $("#searchInput").autocomplete({
@@ -106,3 +278,4 @@ function initAutocomplete() {
     }
   });
 }
+

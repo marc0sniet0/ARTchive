@@ -662,8 +662,7 @@ function focusWorkFromURL() {
       window.scrollTo({ top: targetY, behavior: "smooth" });
     }
 
-    // OPCIONAL: abrir modal automáticamente
-    // openModal(WORKS[idx]);
+  
 
   }, 100);
 }
