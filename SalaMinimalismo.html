@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title> Minimalismo — Recorrido</title>
+    <title>Minimalismo — Recorrido</title>
     <link rel="icon" href="media/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="./css/PopArt.css" />
@@ -143,49 +143,63 @@
     <script defer src="./js/script.js"></script>
     <script defer src="./js/SalaMinimalismo.js"></script>
   </body>
-  <footer class="site-footer">
+  <footer class="site-footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-col">
         <h3 class="footer-title">M·DAC</h3>
         <p class="footer-text">Museo de Arte Contemporáneo</p>
+
+        <a
+          class="footer-top"
+          href="#top"
+          aria-label="Volver al inicio de la página"
+        >
+          ↑ Volver arriba
+        </a>
       </div>
 
-      <div class="footer-col">
+      <nav class="footer-col" aria-label="Enlaces del sitio">
         <h4 class="footer-subtitle">Visita</h4>
         <ul class="footer-links">
           <li><a href="contexto.html">Contexto</a></li>
           <li><a href="salas.html">Salas</a></li>
           <li><a href="index.html#coleccion">Colección</a></li>
         </ul>
-      </div>
+      </nav>
 
       <div class="footer-col">
         <h4 class="footer-subtitle">Contacto</h4>
-        <ul class="footer-meta">
-          <li>Madrid, España</li>
-          <li><a href="mailto:info@mdac.com">info@mdac.com</a></li>
-        </ul>
+        <address class="footer-address">
+          <ul class="footer-meta">
+            <li>Madrid, España</li>
+            <li><a href="mailto:info@mdac.com">info@mdac.com</a></li>
+          </ul>
+        </address>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>© <span id="year"></span> M·DAC</span>
-      <span class="footer-sep">·</span>
+      <span>© <span id="year"></span><noscript>2026</noscript> M·DAC</span>
+
+      <span class="footer-sep" aria-hidden="true">·</span>
       <a
         class="footer-smalllink"
         href="https://www.artic.edu/"
         target="_blank"
         rel="noopener"
-        >API AIC</a
       >
-      <span class="footer-sep">·</span>
+        API AIC
+      </a>
+
+      <span class="footer-sep" aria-hidden="true">·</span>
       <a
         class="footer-smalllink"
         href="https://harvardartmuseums.org/"
         target="_blank"
         rel="noopener"
-        >API Harvard</a
       >
+        API Harvard
+      </a>
     </div>
   </footer>
 </html>
