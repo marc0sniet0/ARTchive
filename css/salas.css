@@ -29,6 +29,7 @@ body {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
+  margin-top: 0.3rem;
 }
 
 .carousel {
@@ -49,7 +50,6 @@ body {
   width: clamp(140px, 20vw, 220px);
   height: clamp(200px, 30vw, 320px);
 
-  border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 18px 32px rgba(0, 0, 0, 0.45);
 }
@@ -65,13 +65,14 @@ body {
   position: fixed;
   top: 4vh;
   left: 50%;
-  padding-top: 5rem;
+  padding-top: 3rem;
+  margin-bottom: 3rem;
   transform: translateX(-50%);
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 700;
   letter-spacing: 4px;
   color: #111;
-
+  z-index: 1001;
 }
 
 /* Texto encima de cada imagen */
@@ -81,9 +82,9 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-size: clamp(1.2rem, 2vw, 2rem);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   font-weight: 700;
-  text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
   pointer-events: none; /* para que el click pase a la tarjeta */
   z-index: 10;
 }
@@ -92,5 +93,4 @@ body {
   .titulo-salas {
     padding-top: 14rem;
   }
-
 }
