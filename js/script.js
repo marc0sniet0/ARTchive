@@ -6,17 +6,15 @@ const searchInput = document.getElementById("searchInput");
 
 let autocompleteInitialized = false;
 
-/* -----------------------------
-   MENÚ HAMBURGUESA
------------------------------ */
+/* MENÚ HAMBURGUESA */
 menuBtn.addEventListener("click", () => {
   const open = nav.classList.toggle("is-open");
   menuBtn.setAttribute("aria-expanded", String(open));
 });
 
-/* -----------------------------
-   BUSCADOR (LUPA)
------------------------------ */
+/* BUSCADOR (LUPA) */
+BUSCADOR(LUPA);
+
 searchBtn.addEventListener("click", () => {
   const isHidden = search.hasAttribute("hidden");
 
@@ -33,7 +31,6 @@ searchBtn.addEventListener("click", () => {
     }
 
     setTimeout(() => searchInput.focus(), 0);
-
   } else {
     // Ocultar buscador
     search.setAttribute("hidden", "");
@@ -137,7 +134,7 @@ function initAutocomplete() {
     "Untitled (C-4)",
     "Statement",
     "Achrome",
-    "Today Series, \"Tuesday\"",
+    'Today Series, "Tuesday"',
     "Seated in a Bathtub",
     "Artist's Shit",
     "Fat Chair",
@@ -162,7 +159,7 @@ function initAutocomplete() {
     "Tears for Eros",
     "Horizontal China Times",
     "The Long Road to Mazatlán",
-    "Disappearance at Sea II"
+    "Disappearance at Sea II",
   ];
 
   const urls = {
@@ -171,17 +168,18 @@ function initAutocomplete() {
     "Drowning Girl": "./PopArt.html?obra=1",
     "Look Mickey": "./PopArt.html?obra=2",
     "Crying Girl": "./PopArt.html?obra=3",
-    "Marilyn": "./PopArt.html?obra=4",
+    Marilyn: "./PopArt.html?obra=4",
     "Campbell's Soup": "./PopArt.html?obra=5",
     "Brillo Box": "./PopArt.html?obra=6",
-    "Flowers": "./PopArt.html?obra=7",
-    "LOVE": "./PopArt.html?obra=8",
-    "Flag": "./PopArt.html?obra=9",
+    Flowers: "./PopArt.html?obra=7",
+    LOVE: "./PopArt.html?obra=8",
+    Flag: "./PopArt.html?obra=9",
 
     // MINIMALISMO
     "Untitled (Donald Judd)": "./SalaMinimalismo.html?obra=0",
-    "Stack": "./SalaMinimalismo.html?obra=1",
-    "Untitled (to you, Heiner, with admiration and affection)": "./SalaMinimalismo.html?obra=2",
+    Stack: "./SalaMinimalismo.html?obra=1",
+    "Untitled (to you, Heiner, with admiration and affection)":
+      "./SalaMinimalismo.html?obra=2",
     "monument for V. Tatlin": "./SalaMinimalismo.html?obra=3",
     "Untitled (Agnes Martin)": "./SalaMinimalismo.html?obra=4",
     "The Tree": "./SalaMinimalismo.html?obra=5",
@@ -202,7 +200,7 @@ function initAutocomplete() {
     "Girl with Balloon": "./SalaUrbano.html?obra=0",
     "Love is in the Air": "./SalaUrbano.html?obra=1",
     "Obey Giant": "./SalaUrbano.html?obra=2",
-    "Marianne": "./SalaUrbano.html?obra=3",
+    Marianne: "./SalaUrbano.html?obra=3",
     "We the Youth": "./SalaUrbano.html?obra=4",
     "Nobody likes me": "./SalaUrbano.html?obra=5",
     "Don’t Shoot": "./SalaUrbano.html?obra=6",
@@ -213,55 +211,56 @@ function initAutocomplete() {
     "Bathers by a River": "./SalaVanguardias.html?obra=1",
     "Boîte-en-valise": "./SalaVanguardias.html?obra=2",
     "Nude Descending a Staircase": "./SalaVanguardias.html?obra=3",
-    "Improvisation": "./SalaVanguardias.html?obra=4",
+    Improvisation: "./SalaVanguardias.html?obra=4",
     "Black Square": "./SalaVanguardias.html?obra=5",
     "Composition with Red Blue and Yellow": "./SalaVanguardias.html?obra=6",
     "Unique Forms of Continuity in Space": "./SalaVanguardias.html?obra=7",
     "Dynamic Hieroglyphic of the Bal Tabarin": "./SalaVanguardias.html?obra=8",
     "Twittering Machine": "./SalaVanguardias.html?obra=9",
-    "Merz": "./SalaVanguardias.html?obra=10",
-    "Rayograph": "./SalaVanguardias.html?obra=11",
+    Merz: "./SalaVanguardias.html?obra=10",
+    Rayograph: "./SalaVanguardias.html?obra=11",
     "The Song of Love": "./SalaVanguardias.html?obra=12",
     "Seated Woman": "./SalaVanguardias.html?obra=13",
     "Street, Dresden": "./SalaVanguardias.html?obra=14",
     "Futurist Manifesto": "./SalaVanguardias.html?obra=15",
-    "Proun": "./SalaVanguardias.html?obra=16",
-    "Construction": "./SalaVanguardias.html?obra=17",
+    Proun: "./SalaVanguardias.html?obra=16",
+    Construction: "./SalaVanguardias.html?obra=17",
 
     // ARTE CONCEPTUAL
     "Have Me Feed Me Hug Me Love Me Need Me": "./SalaConceptual.html?obra=0",
     "Untitled (5-Part Progression)": "./SalaConceptual.html?obra=1",
     "3-Way Fibonacci Progression": "./SalaConceptual.html?obra=2",
-    "Wall Drawing #128 (Ten Thousand Random Not Straight Lines)": "./SalaConceptual.html?obra=3",
+    "Wall Drawing #128 (Ten Thousand Random Not Straight Lines)":
+      "./SalaConceptual.html?obra=3",
     "Untitled (C-4)": "./SalaConceptual.html?obra=4",
-    "Statement": "./SalaConceptual.html?obra=5",
-    "Achrome": "./SalaConceptual.html?obra=6",
-    "Today Series, \"Tuesday\"": "./SalaConceptual.html?obra=7",
+    Statement: "./SalaConceptual.html?obra=5",
+    Achrome: "./SalaConceptual.html?obra=6",
+    'Today Series, "Tuesday"': "./SalaConceptual.html?obra=7",
     "Seated in a Bathtub": "./SalaConceptual.html?obra=8",
     "Artist's Shit": "./SalaConceptual.html?obra=9",
     "Fat Chair": "./SalaConceptual.html?obra=10",
 
     // ARTE DIGITAL
     "Clown Torture": "./SalaDigital.html?obra=0",
-    "Thaw": "./SalaDigital.html?obra=1",
+    Thaw: "./SalaDigital.html?obra=1",
     "Family of robot: Baby": "./SalaDigital.html?obra=2",
     "TV Buddha": "./SalaDigital.html?obra=3",
     "Cross-Hatchings": "./SalaDigital.html?obra=4",
     "Reasons for Knocking at an Empty House": "./SalaDigital.html?obra=5",
     "Caribs’ Leap": "./SalaDigital.html?obra=6",
-    "Delphine": "./SalaDigital.html?obra=7",
+    Delphine: "./SalaDigital.html?obra=7",
     "A31: Tennessee Entrance Hall": "./SalaDigital.html?obra=8",
     "Apotheosis of Homer": "./SalaDigital.html?obra=9",
     "C-4": "./SalaDigital.html?obra=10",
     "Blue Tilt": "./SalaDigital.html?obra=11",
     "Lovely Andrea": "./SalaDigital.html?obra=12",
-    "Annemiek": "./SalaDigital.html?obra=13",
-    "Beyrouth": "./SalaDigital.html?obra=14",
-    "Rapture": "./SalaDigital.html?obra=15",
+    Annemiek: "./SalaDigital.html?obra=13",
+    Beyrouth: "./SalaDigital.html?obra=14",
+    Rapture: "./SalaDigital.html?obra=15",
     "Tears for Eros": "./SalaDigital.html?obra=16",
     "Horizontal China Times": "./SalaDigital.html?obra=17",
     "The Long Road to Mazatlán": "./SalaDigital.html?obra=18",
-    "Disappearance at Sea II": "./SalaDigital.html?obra=19"
+    "Disappearance at Sea II": "./SalaDigital.html?obra=19",
   };
 
   $("#searchInput").autocomplete({
@@ -275,7 +274,6 @@ function initAutocomplete() {
       } else {
         alert("No hay página asignada para: " + value);
       }
-    }
+    },
   });
 }
-
