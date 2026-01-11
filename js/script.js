@@ -13,7 +13,6 @@ menuBtn.addEventListener("click", () => {
 });
 
 /* BUSCADOR (LUPA) */
-BUSCADOR(LUPA);
 
 searchBtn.addEventListener("click", () => {
   const isHidden = search.hasAttribute("hidden");
