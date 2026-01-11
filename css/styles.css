@@ -28,7 +28,23 @@ input {
   border: none;
   outline: none;
 }
+.titulo-sala {
+  margin: 120px 0 40px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  text-align: center;
+  color: var(--color-textos);
+  z-index: 1002;
+}
+.about-sala {
+  margin-left: 3rem;
+  margin-right: 3rem;
 
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--color-textos);
+  text-align: center;
+}
 h1 {
   font-size: 3.5rem;
   color: var(--color-textos);
