@@ -58,12 +58,12 @@ window.addEventListener('resize', () => {
 
 /* Navegación por clic */
 const pageLinks = [
-  "contexto.html",
-  "index.html",
-  "sala-verde.html",
-  "sala-amarilla.html",
-  "sala-morada.html",
-  "sala-naranja.html"
+  "SalaMinimalismo.html",
+  "SalaConceptual.html",
+  "SalaDigital.html",
+  "SalaUrbano.html",
+  "SalaVanguardias.html",
+  "PopArt.html"
 ];
 
 items.forEach((item, index) => {
