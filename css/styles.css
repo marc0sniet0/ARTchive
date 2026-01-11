@@ -115,86 +115,97 @@ h1 {
 }
 
 .site-footer {
-  margin-top: 60px;
-  padding: 48px 20px 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  background: #0f0f12;
-  color: rgba(255, 255, 255, 0.86);
+  margin-top: auto; /* ayuda a pegarlo abajo si el layout usa flex */
+  padding: 3rem 1.5rem 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
 }
 
 .footer-inner {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 28px;
+  gap: 2rem;
+  align-items: start;
 }
 
 .footer-title {
-  margin: 0 0 8px;
-  font-size: 1.2rem;
-  letter-spacing: 0.5px;
+  margin: 0 0 0.5rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
 }
 
 .footer-text {
-  margin: 0;
+  margin: 0 0 1rem;
+  opacity: 0.8;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.72);
 }
 
 .footer-subtitle {
-  margin: 0 0 10px;
+  margin: 0 0 0.75rem;
   font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
 }
 
 .footer-links,
 .footer-meta {
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
   display: grid;
-  gap: 8px;
+  gap: 0.5rem;
+}
+
+.footer-address {
+  font-style: normal;
 }
 
 .site-footer a {
-  color: rgba(255, 255, 255, 0.86);
+  color: inherit;
   text-decoration: none;
 }
 
 .site-footer a:hover {
   text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+.site-footer a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.footer-top {
+  display: inline-block;
+  margin-top: 0.5rem;
+  opacity: 0.9;
 }
 
 .footer-bottom {
-  max-width: 1100px;
-  margin: 28px auto 0;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 0.5rem;
   align-items: center;
   justify-content: center;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+  opacity: 0.85;
 }
 
 .footer-sep {
-  opacity: 0.6;
+  opacity: 0.5;
+  padding: 0 0.25rem;
 }
 
 .footer-smalllink {
-  font-size: 0.9rem;
-}
-
-/* Responsive */
-@media (max-width: 820px) {
-  .footer-inner {
-    grid-template-columns: 1fr;
-  }
-  .footer-bottom {
-    justify-content: flex-start;
-  }
+  opacity: 0.95;
 }
 
 /* ------------------------------
