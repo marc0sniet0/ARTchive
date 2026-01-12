@@ -4,14 +4,11 @@
   --muted: rgba(246, 246, 244, 0.68);
   --muted2: rgba(246, 246, 244, 0.45);
   --accent: #3a7afe;
-
   --shadow: 0 26px 90px rgba(0, 0, 0, 0.5);
-
   --edgePad: 10vw;
   --gap: 70px;
   --color-textos: #000000;
   --color-fondo: #ffffff;
-
   --hoverPink: rgb(205, 62, 134);
 }
 
@@ -26,12 +23,12 @@ body {
 
 body {
   margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
-    Helvetica, Arial;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
   background-color: var(--color-fondo);
   color: var(--color-textos);
   overflow-x: hidden;
 }
+
 .titulo-sala {
   margin: 120px 0 40px;
   font-size: clamp(2rem, 5vw, 3rem);
@@ -40,6 +37,7 @@ body {
   color: var(--color-textos);
   z-index: 1002;
 }
+
 .about-sala {
   margin-left: 3rem;
   margin-right: 3rem;
@@ -49,6 +47,7 @@ body {
   text-align: center;
   padding-bottom: 2rem;
 }
+
 .gallery {
   height: 280vh;
   position: relative;
@@ -65,6 +64,7 @@ body {
   user-select: none;
   cursor: grab;
 }
+
 .sticky.isDragging {
   cursor: grabbing;
 }
@@ -113,12 +113,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.74),
-    rgba(0, 0, 0, 0.14),
-    rgba(0, 0, 0, 0)
-  );
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0));
   pointer-events: none;
 }
 
@@ -144,12 +139,14 @@ body {
   letter-spacing: -0.01em;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.35));
 }
+
 .artMeta p {
   margin: 6px 0 0;
   font-size: 13px;
   opacity: 0.9;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.35));
 }
+
 .artMeta .kicker {
   margin: 0 0 6px;
   font-size: 12px;
@@ -183,7 +180,6 @@ body {
   gap: 10px;
   padding: 10px 12px;
   border-radius: 999px;
-
   background: var(--color-fondo);
   color: var(--color-textos);
   backdrop-filter: blur(8px);
@@ -192,11 +188,13 @@ body {
   transition: opacity 0.22s ease, transform 0.22s ease;
   z-index: 25;
 }
+
 .endActions.isVisible {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(-50%) translateY(-2px);
 }
+
 .endBtn {
   padding: 12px 14px;
   border-radius: 999px;
@@ -206,6 +204,7 @@ body {
   cursor: pointer;
   font: inherit;
 }
+
 .endBtn.primary {
   color: rgb(20, 89, 207);
   border-color: rgba(58, 122, 254, 0.35);
@@ -221,6 +220,7 @@ body {
   backdrop-filter: blur(8px);
   z-index: 30;
 }
+
 .loadingLayer[aria-hidden="true"] {
   pointer-events: none;
 }
@@ -235,6 +235,7 @@ body {
   border: 1px solid rgba(246, 246, 244, 0.14);
   box-shadow: var(--shadow);
 }
+
 .spinner {
   width: 18px;
   height: 18px;
@@ -243,14 +244,17 @@ body {
   border-top-color: rgba(255, 255, 255, 0.95);
   animation: spin 0.9s linear infinite;
 }
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
   }
 }
+
 .loadingTitle {
   font-weight: 800;
 }
+
 .loadingSub {
   color: var(--muted);
   font-size: 12px;
@@ -268,6 +272,7 @@ body {
   backdrop-filter: blur(10px);
   z-index: 999;
 }
+
 .modalOverlay.isOpen {
   display: flex;
 }
@@ -295,9 +300,9 @@ body {
   color: #111;
   font-size: 24px;
   cursor: pointer;
-  transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
+
 .modalClose:hover {
   color: var(--hoverPink);
   transform: scale(1.05);
@@ -318,6 +323,7 @@ body {
   padding: 18px;
   border-right: 1px solid rgba(0, 0, 0, 0.08);
 }
+
 .modalMedia img {
   width: 100%;
   height: 100%;
@@ -336,6 +342,7 @@ body {
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.55);
 }
+
 .modalTitle {
   margin: 10px 0 0;
   font-size: 22px;
@@ -343,6 +350,7 @@ body {
   font-weight: 900;
   color: rgba(0, 0, 0, 0.88);
 }
+
 .modalMeta {
   margin-top: 8px;
   font-size: 13px;
@@ -354,6 +362,7 @@ body {
   display: grid;
   gap: 10px;
 }
+
 .fact {
   padding: 10px 12px;
   border-radius: 14px;
@@ -361,17 +370,20 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.12);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
+
 .fact:hover {
   border-color: var(--hoverPink);
   box-shadow: 0 8px 24px rgba(205, 62, 134, 0.18);
   transform: translateY(-1px);
 }
+
 .factLabel {
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.45);
 }
+
 .factValue {
   margin-top: 6px;
   font-size: 13px;
@@ -397,47 +409,25 @@ body {
   color: rgba(0, 0, 0, 0.8);
   text-decoration: none;
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
-    transform 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
+
 .btn:hover {
   color: var(--hoverPink);
   border-color: var(--hoverPink);
   box-shadow: 0 8px 24px rgba(205, 62, 134, 0.18);
   transform: translateY(-1px);
 }
+
 .btn.ghost {
   background: transparent;
   border-color: rgba(0, 0, 0, 0.12);
   color: rgba(0, 0, 0, 0.55);
 }
+
 .btn.ghost:hover {
   color: var(--hoverPink);
   border-color: var(--hoverPink);
-}
-
-.endActions {
-  position: absolute;
-  left: 50%;
-  bottom: 22px;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  padding: 10px 12px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(8px);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.22s ease, transform 0.22s ease;
-  z-index: 25;
-}
-
-.endActions.isVisible {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateX(-50%) translateY(-2px);
 }
 
 .endBtn {
@@ -448,8 +438,7 @@ body {
   color: rgba(0, 0, 0, 0.8);
   cursor: pointer;
   font: inherit;
-  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
-    transform 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .endBtn:hover {
@@ -497,6 +486,7 @@ body {
     height: 42vh;
     flex-shrink: 0;
   }
+
   .about-sala {
     margin-left: 2rem;
     margin-right: 2rem;
