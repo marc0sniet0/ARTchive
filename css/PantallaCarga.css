@@ -1,7 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 body {
   margin: 0;
   background-color: white;
-  font-family: "Helvetica Neue", sans-serif;
+  font-family: "inter", sans-serif;
   overflow: hidden;
 }
 
@@ -24,6 +25,10 @@ body {
   font-weight: bold;
   color: black;
   margin: 1rem;
+  display: flex;
+}
+.thin-title {
+  font-weight: 200;
 }
 
 #subtitle {
@@ -98,11 +103,3 @@ body {
     margin-top: 0.2rem;
   }
 }
-
-
-
-
-
-
-
-
