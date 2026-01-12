@@ -89,6 +89,7 @@ body {
   transform-style: preserve-3d;
   will-change: transform, filter, opacity;
   cursor: pointer;
+  padding: 10px;
 }
 
 .artCard .media {
@@ -481,7 +482,8 @@ body {
 
   .artCard {
     width: 84vw;
-    height: 52vh;
+    height: 42vh; /* clave */
+    flex-shrink: 0;
   }
 
   .modalGrid {
@@ -491,5 +493,14 @@ body {
   .modalMedia {
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+}
+
+@media (max-width: 480px) {
+  .artCard {
+    width: 72vw;          /* antes 84vw */
+    max-width: 320px;     /* opcional: para que no crezca raro en móviles grandes */
+    height: 42vh;         /* o 40-45vh */
+    flex-shrink: 0;
   }
 }

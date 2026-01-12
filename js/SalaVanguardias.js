@@ -1,4 +1,4 @@
-const HARVARD_KEY = "459d34a0-e80d-4b45-b246-23df92116c0c"; 
+const HARVARD_KEY = "459d34a0-e80d-4b45-b246-23df92116c0c";
 const HARVARD_OBJECT_BASE = "https://api.harvardartmuseums.org/object";
 const AIC_BASE = "https://api.artic.edu/api/v1";
 
@@ -31,6 +31,7 @@ let lastFocusedEl = null;
 
 const usedAicIds = new Set();
 const usedImageIds = new Set();
+
 const CURATED_VANGUARDIAS = [
   { artist: "Pablo Picasso", title: "The Old Guitarist" },
   { artist: "Henri Matisse", title: "Bathers by a River" },
@@ -54,6 +55,7 @@ const CURATED_VANGUARDIAS = [
 
 let WORKS = [];
 
+/* -------------------- utils -------------------- */
 function safe(v, fallback="—"){ return (v && String(v).trim().length) ? String(v).trim() : fallback; }
 function clamp(n,a,b){ return Math.max(a, Math.min(b,n)); }
 function normalize(s){
@@ -79,6 +81,7 @@ async function fetchJSON(url){
   return await res.json();
 }
 
+/* -------------------- AIC -------------------- */
 async function aicSearchMany({ artist, title }, limit = 10){
   const q = `${title} ${artist} avant-garde vanguard modernism`;
   const url = `${AIC_BASE}/artworks/search?q=${encodeURIComponent(q)}&limit=${limit}&fields=id,title,artist_title,date_display,image_id,medium_display,style_title,classification_titles,place_of_origin`;
@@ -113,7 +116,7 @@ function pickBestNonDuplicate(candidates, { artist, title }){
   const wantT = normalize(title);
 
   const ranked = [...candidates]
-    .filter(c => c?.image_id) 
+    .filter(c => c?.image_id)
     .map(c => ({ c, s: scoreCandidate(c, wantA, wantT) }))
     .sort((x,y) => y.s - x.s)
     .map(x => x.c);
@@ -126,6 +129,7 @@ function pickBestNonDuplicate(candidates, { artist, title }){
   return null;
 }
 
+/* -------------------- Harvard -------------------- */
 async function harvardSearchOne({ artist, title }){
   if (!HARVARD_KEY) return null;
 
@@ -156,6 +160,7 @@ async function harvardSearchOne({ artist, title }){
 }
 function harvardObjectLink(rec){ return rec?.url || ""; }
 
+/* -------------------- build -------------------- */
 const cache = new Map();
 
 async function buildArtwork(item){
@@ -208,6 +213,7 @@ async function buildArtwork(item){
   return unified;
 }
 
+/* -------------------- render cards -------------------- */
 function workCardHTML(w, idx){
   const title  = safe(w.hTitle || w.aicTitle || w.title);
   const artist = safe(w.hArtist || w.aicArtist || w.artist);
@@ -229,6 +235,7 @@ function renderWorks(){
   track.innerHTML = WORKS.map(workCardHTML).join("");
 }
 
+/* -------------------- modal -------------------- */
 function factRow(label, value){
   if (!value || !String(value).trim().length) return "";
   return `
@@ -292,19 +299,50 @@ $(window).on("keydown", (e) => {
   if (e.key === "Escape" && $modalOverlay.hasClass("isOpen")) closeModal();
 });
 
+/* -------------------- end actions -------------------- */
 function setEndActionsVisible(visible){
   if (!endActions) return;
   endActions.classList.toggle("isVisible", !!visible);
   endActions.setAttribute("aria-hidden", visible ? "false" : "true");
 }
 
+/* =========================================================
+   ✅ CAMBIOS MÍNIMOS: calcular con el ancho/centro de sticky
+   ========================================================= */
+function getViewportRect(){
+  return sticky.getBoundingClientRect();
+}
+function viewportWidth(){
+  return getViewportRect().width;
+}
+function viewportCenterX(){
+  const r = getViewportRect();
+  return r.left + r.width / 2;
+}
+
+/* --- before: maxX() usaba window.innerWidth --- */
+function maxX(){
+  return Math.max(0, track.scrollWidth - viewportWidth());
+}
+
+/* --- before: updateEdgePadding() usaba window.innerWidth --- */
+function updateEdgePadding(){
+  const first = track.querySelector(".artCard");
+  if (!first) return;
+  const cardW = first.getBoundingClientRect().width;
+  const edge = Math.max(18, (viewportWidth() - cardW) / 2);
+  document.documentElement.style.setProperty("--edgePad", `${edge}px`);
+}
+
+/* --- before: isLastCardCentered() usaba window.innerWidth/2 --- */
 function isLastCardCentered(){
   const cards = track.querySelectorAll(".artCard");
   if (!cards.length) return false;
 
   const last = cards[cards.length - 1];
   const r = last.getBoundingClientRect();
-  const center = window.innerWidth / 2;
+
+  const center = viewportCenterX();
   const lastCenter = r.left + r.width / 2;
 
   const TH = Math.max(18, r.width * 0.08);
@@ -316,6 +354,7 @@ function updateEndActions(){
   setEndActionsVisible(isLastCardCentered());
 }
 
+/* -------------------- scroll mapping -------------------- */
 let currentX = 0, targetX = 0;
 const ease = 0.075;
 
@@ -335,29 +374,20 @@ function getScrollProgress(){
   const p = total === 0 ? 0 : scrolled / total;
   return { p, total };
 }
-function maxX(){
-  return Math.max(0, track.scrollWidth - window.innerWidth);
-}
-function updateEdgePadding(){
-  const first = track.querySelector(".artCard");
-  if (!first) return;
-  const cardW = first.getBoundingClientRect().width;
-  const edge = Math.max(18, (window.innerWidth - cardW) / 2);
-  document.documentElement.style.setProperty("--edgePad", `${edge}px`);
-}
 function updateTargetX(){
   const { p } = getScrollProgress();
   targetX = -p * maxX();
 }
 
+/* --- before: apply3DEffect() centerX = window.innerWidth/2 --- */
 function apply3DEffect(){
   const cards = track.querySelectorAll(".artCard");
-  const centerX = window.innerWidth / 2;
+  const centerX = viewportCenterX();
 
   cards.forEach(card => {
     const r = card.getBoundingClientRect();
     const cardCenter = r.left + r.width / 2;
-    const dist = (cardCenter - centerX) / centerX;
+    const dist = (cardCenter - centerX) / (viewportWidth() / 2);
     const n = clamp(dist, -1, 1);
 
     const rotY  = n * -24;
@@ -405,12 +435,14 @@ function stopInertia(){
     inertiaRAF = null;
   }
 }
+
+/* --- before: snapToNearest() centerX = window.innerWidth/2 --- */
 function snapToNearest(){
   const rect = section.getBoundingClientRect();
   if (!(rect.top <= 0 && rect.bottom >= window.innerHeight * 0.6)) return;
 
   const cards = Array.from(track.querySelectorAll(".artCard"));
-  const centerX = window.innerWidth / 2;
+  const centerX = viewportCenterX();
 
   let best = null, bestDist = Infinity;
   for (const card of cards){
@@ -438,6 +470,7 @@ function snapToNearest(){
 
   window.scrollTo({ top: desiredScrollY, behavior: "smooth" });
 }
+
 function startInertia(){
   stopInertia();
   const friction = 0.92;
@@ -467,6 +500,7 @@ function onResize(){
   apply3DEffect();
 }
 
+/* -------------------- pointer drag -------------------- */
 let isDown = false;
 let dragged = false;
 let downX = 0, downY = 0;
@@ -544,6 +578,7 @@ function onStickyClickCapture(){
   pressedCardEl = null;
 }
 
+/* -------------------- load works -------------------- */
 async function loadWorks(){
   usedAicIds.clear();
   usedImageIds.clear();
@@ -578,6 +613,7 @@ async function loadWorks(){
   }
 }
 
+/* -------------------- bind -------------------- */
 function bind(){
   window.addEventListener("scroll", onScroll, { passive:true });
   window.addEventListener("resize", onResize);
@@ -617,6 +653,7 @@ function bind(){
 bind();
 loadWorks().then(() => tick());
 
+/* -------------------- focus from URL -------------------- */
 function focusWorkFromURL() {
   const params = new URLSearchParams(window.location.search);
   const idx = Number(params.get("obra"));
@@ -628,28 +665,26 @@ function focusWorkFromURL() {
 
     clearInterval(tryFocus);
 
-    // 1. Obtener posición horizontal del card
     const cardRect = card.getBoundingClientRect();
     const cardCenter = cardRect.left + cardRect.width / 2;
-    const viewportCenter = window.innerWidth / 2;
-    const deltaX = cardCenter - viewportCenter;
 
-    // 2. Convertir desplazamiento horizontal a desplazamiento vertical
-    const mx = maxX(); // ancho total desplazable
-    const { total } = getScrollProgress(); // scroll vertical total
+    // ✅ usar el centro real del carrusel (sticky), no el viewport
+    const centerX = viewportCenterX();
+    const deltaX = cardCenter - centerX;
+
+    const mx = maxX();
+    const { total } = getScrollProgress();
 
     if (mx > 0 && total > 0) {
       const desiredX = currentX - deltaX;
       const clampedX = clamp(desiredX, -mx, 0);
-      const p = (-clampedX) / mx; // porcentaje de scroll
+      const p = (-clampedX) / mx;
+
       const sectionTop = section.getBoundingClientRect().top + window.scrollY;
       const targetY = sectionTop + p * total;
 
       window.scrollTo({ top: targetY, behavior: "smooth" });
     }
-
-  
-
   }, 100);
 }
 
