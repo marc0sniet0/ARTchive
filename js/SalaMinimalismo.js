@@ -2,7 +2,7 @@ const HARVARD_KEY = "459d34a0-e80d-4b45-b246-23df92116c0c";
 const HARVARD_OBJECT_BASE = "https://api.harvardartmuseums.org/object";
 const AIC_BASE = "https://api.artic.edu/api/v1";
 
-const CONTINUE_URL = "./recorrido.html";
+const CONTINUE_URL = "./PopArt.html";
 const EXIT_URL = "./index.html";
 
 const section = document.getElementById("gallery");

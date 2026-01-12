@@ -4,7 +4,7 @@ const HARVARD_OBJECT_BASE = "https://api.harvardartmuseums.org/object";
 const AIC_BASE = "https://api.artic.edu/api/v1";
 
 
-const CONTINUE_URL = "./recorrido.html";
+const CONTINUE_URL = "./SalaVanguardias.html";
 const EXIT_URL = "./index.html";
 
 const section = document.getElementById("gallery");

@@ -125,11 +125,11 @@
 
   // --------- BOTONES (si quieres rutas) ----------
   btnRecorrido?.addEventListener("click", () => {
-    window.location.href = "./recorrido.html";
+    window.location.href = "PopArt.html";
   });
 
   btnSalas?.addEventListener("click", () => {
-    window.location.href = "./salas.html";
+    window.location.href = "Salas.html";
   });
 
   // init

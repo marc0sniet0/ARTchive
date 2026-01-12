@@ -43,11 +43,11 @@ body {
 .about-sala {
   margin-left: 3rem;
   margin-right: 3rem;
-
   font-size: 1.1rem;
   line-height: 1.6;
   color: var(--color-textos);
   text-align: center;
+  padding-bottom: 2rem;
 }
 .gallery {
   height: 280vh;
@@ -496,11 +496,17 @@ body {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 520px) {
   .artCard {
     width: 72vw;          /* antes 84vw */
     max-width: 320px;     /* opcional: para que no crezca raro en móviles grandes */
     height: 42vh;         /* o 40-45vh */
     flex-shrink: 0;
+  }
+  .about-sala {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    font-size: 0.8rem;
+    padding-bottom: 1.5rem;
   }
 }
