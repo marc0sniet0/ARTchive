@@ -18,9 +18,12 @@
 * {
   box-sizing: border-box;
 }
-html {
-  overflow-x: visible;
+
+html,
+body {
+  height: 100%;
 }
+
 body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
@@ -29,7 +32,23 @@ body {
   color: var(--color-textos);
   overflow-x: hidden;
 }
+.titulo-sala {
+  margin: 120px 0 40px;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  text-align: center;
+  color: var(--color-textos);
+  z-index: 1002;
+}
+.about-sala {
+  margin-left: 3rem;
+  margin-right: 3rem;
 
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-textos);
+  text-align: center;
+}
 .gallery {
   height: 280vh;
   position: relative;
@@ -61,8 +80,8 @@ body {
 }
 
 .artCard {
-  width: min(55vw, 755px);
-  height: min(45vh, 515px);
+  width: min(64vw, 760px);
+  height: min(52vh, 520px);
   box-shadow: var(--shadow);
   overflow: hidden;
   position: relative;
@@ -82,7 +101,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, 0, 0) scale(1.08);
   will-change: transform;
   filter: saturate(0.98) contrast(1.02);
   pointer-events: none; /* click siempre a la card */
@@ -291,9 +310,9 @@ body {
 }
 
 .modalGrid {
-  display: block;
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
   max-height: 90vh;
-  overflow-y: auto;
 }
 
 .modalMedia {
@@ -347,7 +366,11 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.12);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
-
+.fact:hover {
+  border-color: var(--hoverPink);
+  box-shadow: 0 8px 24px rgba(205, 62, 134, 0.18);
+  transform: translateY(-1px);
+}
 .factLabel {
   font-size: 11px;
   letter-spacing: 0.12em;
@@ -434,6 +457,13 @@ body {
     transform 0.2s ease;
 }
 
+.endBtn:hover {
+  color: rgb(205, 62, 134);
+  border-color: rgb(205, 62, 134);
+  box-shadow: 0 8px 24px rgba(205, 62, 134, 0.18);
+  transform: translateY(-1px);
+}
+
 .endBtn.primary {
   font-weight: 600;
 }
@@ -450,10 +480,8 @@ body {
   }
 
   .artCard {
-    .artCard {
-      width: 72vw;
-      height: 42vh;
-    }
+    width: 84vw;
+    height: 52vh;
   }
 
   .modalGrid {
@@ -463,9 +491,5 @@ body {
   .modalMedia {
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  }
-  .track {
-    padding-left: 4vw;
-    padding-right: 4vw;
   }
 }
