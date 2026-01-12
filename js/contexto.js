@@ -1,24 +1,28 @@
+const scroller = document.getElementById("scroller");
+const story = document.getElementById("story");
+const root = document.documentElement;
 
-    const scroller = document.getElementById("scroller");
-    const story = document.getElementById("story");
-    const root = document.documentElement;
+function clamp01(v) {
+  return Math.max(0, Math.min(1, v));
+}
 
-    function clamp01(v){ return Math.max(0, Math.min(1, v)); }
+function update() {
+  const maxScroll = story.scrollHeight - scroller.clientHeight;
+  const p = maxScroll > 0 ? clamp01(scroller.scrollTop / maxScroll) : 0;
+  root.style.setProperty("--p", p.toFixed(4));
+}
 
-    function update(){
-      const maxScroll = story.scrollHeight - scroller.clientHeight;
-      const p = maxScroll > 0 ? clamp01(scroller.scrollTop / maxScroll) : 0;
-      root.style.setProperty("--p", p.toFixed(4));
-    }
+update();
+scroller.addEventListener("scroll", update, { passive: true });
+window.addEventListener("resize", update);
 
-    update();
-    scroller.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
+// BOTÓN: Seguir recorrido
+document.getElementById("btnRecorrido").addEventListener("click", () => {
+  window.location.href = "PopArt.html";
+});
 
-    document.getElementById("btnRecorrido").addEventListener("click", () => {
-      alert("Seguir recorrido ✨ (pon aquí tu link)");
-    });
-
-    document.getElementById("btnSalas").addEventListener("click", () => {
-      alert("Explorar las salas 🗺️ (pon aquí tu link)");
-    });
+// BOTÓN: Explorar las salas
+document.getElementById("btnSalas").addEventListener("click", () => {
+  window.location.href = "Salas.html";
+  // Cambia "salas.html" por la ruta correcta si es otra
+});
