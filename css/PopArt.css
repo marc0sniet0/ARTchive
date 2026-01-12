@@ -347,11 +347,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.12);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
-.fact:hover {
-  border-color: var(--hoverPink);
-  box-shadow: 0 8px 24px rgba(205, 62, 134, 0.18);
-  transform: translateY(-1px);
-}
+
 .factLabel {
   font-size: 11px;
   letter-spacing: 0.12em;
@@ -436,13 +432,6 @@ body {
   font: inherit;
   transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
     transform 0.2s ease;
-}
-
-.endBtn:hover {
-  color: rgb(205, 62, 134);
-  border-color: rgb(205, 62, 134);
-  box-shadow: 0 8px 24px rgba(205, 62, 134, 0.18);
-  transform: translateY(-1px);
 }
 
 .endBtn.primary {

@@ -100,7 +100,6 @@ h1 {
   font-weight: lighter;
   opacity: 0.85;
 }
-
 .nav__link:hover {
   opacity: 1;
 }
@@ -351,8 +350,8 @@ h1 {
     gap: 0.5rem;
   }
   .about-sala {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    margin-left: 1.8rem;
+    margin-right: 1.8rem;
   }
   .titulo-sala {
     margin-left: 1.5rem;
