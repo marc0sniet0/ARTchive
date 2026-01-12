@@ -1,4 +1,4 @@
-const NEXT_URL = "./index.html"; 
+const NEXT_URL = "./PantallaCarga.html"; 
 
 document.addEventListener("DOMContentLoaded", () => {
   const title = document.getElementById("title");

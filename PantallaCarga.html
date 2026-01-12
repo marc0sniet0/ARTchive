@@ -5,14 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="icon" href="media/favicon.svg?v=3" type="image/svg+xml" />
-    <link rel="stylesheet" href="css/PantallaCarga.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/portal.css" />
   </head>
-  <body>
-    <div id="loading-screen">
-      <h1 id="title"><strong>ART</strong>CHIVE</h1>
-      <h2 id="subtitle">ARCHIVO DIGITAL DE ARTE CONTEMPORANEO</h2>
-    </div>
+  <body class="animacion-page">
+    <div class="circular-wrapper">
+      <div id="revealCircle" class="reveal-circle"></div>
 
-    <script src="js/PantallaCarga.js"></script>
+      <img
+        src="media/logo fondo blanco.svg"
+        alt="Centro"
+        class="center-image"
+      />
+      <div id="circularText" class="circular-text"></div>
+    </div>
+    <div class="hint" aria-hidden="true">↓ scroll</div>
+    <script src="js/portal.js"></script>
   </body>
 </html>
