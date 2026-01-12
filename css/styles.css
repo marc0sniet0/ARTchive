@@ -53,10 +53,6 @@ h1 {
   color: var(--color-textos);
 }
 
-/* ------------------------------
-   TOPBAR DESKTOP (FLEX)
-   Refinado con micro-detalles
------------------------------- */
 .topbar {
   position: fixed;
   top: 0;
@@ -74,15 +70,11 @@ h1 {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* sutil realce al hacer scroll (opcional con JS) */
 .topbar.is-scrolled {
   background-color: rgba(255, 255, 255, 0.92);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* ------------------------------
-   Logo
------------------------------- */
 .brand {
   display: inline-flex;
   align-items: center;
@@ -103,9 +95,6 @@ h1 {
   object-fit: contain;
 }
 
-/* ------------------------------
-   NAV
------------------------------- */
 .nav {
   display: flex;
   gap: 2rem;
@@ -131,7 +120,6 @@ h1 {
   transform: scale(1.05);
 }
 
-/* subrayado editorial muy fino */
 .nav__link::after {
   content: "";
   position: absolute;
@@ -149,7 +137,6 @@ h1 {
   width: 60%;
 }
 
-/* ACTIONS (lupa + menú) */
 .actions {
   display: flex;
   align-items: center;
@@ -178,7 +165,7 @@ h1 {
 }
 
 .site-footer {
-  margin-top: auto; /* ayuda a pegarlo abajo si el layout usa flex */
+  margin-top: auto;
   padding: 3rem 1.5rem 1.25rem;
   border-top: 1px solid rgba(0, 0, 0, 0.12);
   background: #fff;
@@ -271,16 +258,13 @@ h1 {
   opacity: 0.95;
 }
 
-/* ------------------------------
-   SEARCH INLINE (DESKTOP)
------------------------------- */
 .search {
   display: none;
 }
 
 .search.is-open {
   display: block;
-  width: 250px; /* ajustable */
+  width: 250px;
 }
 
 .search input {
@@ -291,7 +275,6 @@ h1 {
   background: var(--color-fondo);
 }
 
-/* Accesibilidad */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -314,7 +297,6 @@ h1 {
   border: none;
 }
 
-/* Desktop: lupa antes del input */
 .actions {
   display: flex;
   align-items: center;

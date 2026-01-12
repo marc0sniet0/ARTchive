@@ -14,7 +14,6 @@ body {
   overflow: hidden;
 }
 
-/* Capa completa */
 .intro {
   position: fixed;
   inset: 0;
@@ -23,7 +22,6 @@ body {
   will-change: opacity;
 }
 
-/* Contenedor centrado (solo tamaño, no transforma nada) */
 .introCenter {
   position: absolute;
   left: 50%;
@@ -36,7 +34,6 @@ body {
   display: block;
 }
 
-/* ✅ Importante: NO pongas transform aquí, porque el JS lo pisa */
 #intro-title,
 .intro-text {
   position: absolute;
@@ -48,7 +45,6 @@ body {
   will-change: transform, opacity, filter;
 }
 
-/* Título */
 #intro-title {
   font-size: clamp(3rem, 10vw, 9rem);
   letter-spacing: 0.12em;
@@ -57,7 +53,6 @@ body {
   color: #000000;
 }
 
-/* Texto */
 .intro-text {
   max-width: 72ch;
   margin: 0 auto;
@@ -73,7 +68,6 @@ body {
   margin-top: 12px;
 }
 
-/* Hint */
 .scroll-hint {
   position: absolute;
   left: 50%;

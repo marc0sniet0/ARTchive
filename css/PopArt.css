@@ -105,7 +105,7 @@ body {
   transform: translate3d(0, 0, 0) scale(1.08);
   will-change: transform;
   filter: saturate(0.98) contrast(1.02);
-  pointer-events: none; /* click siempre a la card */
+  pointer-events: none;
   -webkit-user-drag: none;
 }
 
@@ -257,10 +257,6 @@ body {
   margin-top: 4px;
 }
 
-/* =========================
-   MODAL · LIGHT + HOVER ROSA
-   ========================= */
-
 .modalOverlay {
   position: fixed;
   inset: 0;
@@ -287,7 +283,6 @@ body {
   position: relative;
 }
 
-/* close */
 .modalClose {
   position: absolute;
   top: 12px;
@@ -354,7 +349,6 @@ body {
   color: rgba(0, 0, 0, 0.55);
 }
 
-/* facts blancos */
 .modalFacts {
   margin-top: 16px;
   display: grid;
@@ -482,7 +476,7 @@ body {
 
   .artCard {
     width: 84vw;
-    height: 42vh; /* clave */
+    height: 42vh;
     flex-shrink: 0;
   }
 
@@ -498,9 +492,9 @@ body {
 
 @media (max-width: 520px) {
   .artCard {
-    width: 72vw;          /* antes 84vw */
-    max-width: 320px;     /* opcional: para que no crezca raro en móviles grandes */
-    height: 42vh;         /* o 40-45vh */
+    width: 72vw;
+    max-width: 320px;
+    height: 42vh;
     flex-shrink: 0;
   }
   .about-sala {
