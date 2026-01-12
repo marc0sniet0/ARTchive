@@ -1,50 +1,104 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: Helvetica, Arial, sans-serif;
-  background: #000000;
-  color: white;
+  background: #000;
+  color: #fff;
 }
 
 .lock-scroll {
   overflow: hidden;
 }
 
+/* Capa completa */
 .intro {
   position: fixed;
   inset: 0;
   background: #0e0e0e;
-  display: grid;
-  place-items: center;
-  text-align: center;
   z-index: 100;
+  will-change: opacity;
 }
 
+/* Contenedor centrado (solo tamaño, no transforma nada) */
+.introCenter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: min(980px, 92vw);
+  height: 320px;
+
+  display: block;
+}
+
+/* ✅ Importante: NO pongas transform aquí, porque el JS lo pisa */
+#intro-title,
+.intro-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+
+  will-change: transform, opacity, filter;
+}
+
+/* Título */
 #intro-title {
   font-size: clamp(3rem, 10vw, 9rem);
   letter-spacing: 0.12em;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  font-weight: 800;
+  line-height: 0.92;
+  color: #fff;
 }
 
+/* Texto */
+.intro-text {
+  max-width: 72ch;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.75;
+
+  opacity: 0;
+  filter: blur(10px);
+}
+
+.intro-text p + p {
+  margin-top: 12px;
+}
+
+/* Hint */
 .scroll-hint {
   position: absolute;
+  left: 50%;
   bottom: 40px;
+  transform: translateX(-50%);
   font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   opacity: 0.6;
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+  user-select: none;
 }
 
-.gallery {
-  min-height: 100vh;
-  padding: 6rem 10%;
-  background: #fafafa;
-  color: #111;
-}
+@media (max-width: 640px) {
+  .introCenter {
+    height: 280px;
+  }
 
-#intro-title{
-  will-change: transform, opacity, filter;
-  transform-origin: center;
-}
+  #intro-title {
+    letter-spacing: 0.1em;
+  }
 
-.intro{
-  will-change: opacity;
+  .scroll-hint {
+    bottom: 26px;
+    font-size: 0.75rem;
+  }
 }
