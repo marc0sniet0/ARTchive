@@ -276,44 +276,6 @@ body {
   pointer-events: auto;
 }
 
-/* ---------------- hint ---------------- */
-.hint {
-  position: fixed;
-  left: 50%;
-  bottom: 50px;
-  transform: translateX(-50%);
-  z-index: 2147483647;
-
-  opacity: 1;
-  pointer-events: none;
-  user-select: none;
-
-  color: rgba(0, 0, 0, 0.78);
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.02em;
-
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(10px);
-  padding: 8px 12px;
-  border-radius: 999px;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.14);
-
-  animation: hintFloat 1.8s ease-in-out infinite;
-}
-
-@keyframes hintFloat {
-  0% {
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    transform: translateX(-50%) translateY(-6px);
-  }
-  100% {
-    transform: translateX(-50%) translateY(0);
-  }
-}
 
 /* ---------------- lock final (CAMBIO) ----------------
    NO bloquea el scroll, solo:
@@ -363,15 +325,5 @@ body {
     width: 100%;
   }
 
-  .hint {
-    bottom: 70px;
-    font-size: 11px;
-    padding: 7px 10px;
-  }
 }
 
-@media (max-width: 580px) {
-  .hint {
-    bottom: 62px;
-  }
-}

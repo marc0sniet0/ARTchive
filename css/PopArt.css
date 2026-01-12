@@ -459,9 +459,9 @@ body {
 }
 
 .endBtn:hover {
-  color: rgb(205, 62, 134);
-  border-color: rgb(205, 62, 134);
-  box-shadow: 0 8px 24px rgba(205, 62, 134, 0.18);
+  color: rgb(0, 0, 0);
+  border-color: rgb(94, 94, 94);
+  box-shadow: 0 8px 24px rgba(102, 102, 102, 0.18);
   transform: translateY(-1px);
 }
 
@@ -471,8 +471,8 @@ body {
 
 .endBtn:focus-visible {
   outline: none;
-  border-color: rgb(205, 62, 134);
-  box-shadow: 0 0 0 3px rgba(205, 62, 134, 0.25);
+  border-color: rgb(0, 0, 0);
+  box-shadow: 0 0 0 3px rgba(110, 110, 110, 0.25);
 }
 
 @media (max-width: 980px) {
