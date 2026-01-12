@@ -18,12 +18,9 @@
 * {
   box-sizing: border-box;
 }
-
-html,
-body {
-  height: 100%;
+html {
+  overflow-x: visible;
 }
-
 body {
   margin: 0;
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
@@ -475,5 +472,9 @@ body {
   .modalMedia {
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .track {
+    padding-left: 4vw;
+    padding-right: 4vw;
   }
 }

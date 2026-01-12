@@ -11,14 +11,17 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: "aileron", sans-serif;
   font-style: normal;
   font-optical-sizing: auto;
   scroll-behavior: smooth;
   user-select: none;
+  box-sizing: border-box;
 }
-
+main {
+  margin: 0;
+  padding: 0;
+}
 body {
   color: var(--color-textos);
   background-color: var(--color-fondo);
