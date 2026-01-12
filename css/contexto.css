@@ -161,12 +161,22 @@ body {
 #scroller .images-wrap {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
+  justify-items: center;
   gap: 18px;
   align-items: stretch;
 }
+.image-title {
+  max-width: 62ch;
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.65;
+  text-align: center;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
 
 #scroller .img-card {
+  max-height: 40svh;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
