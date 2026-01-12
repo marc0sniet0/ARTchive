@@ -8,14 +8,6 @@
     <link rel="icon" href="media/favicon.svg?v=3" type="image/svg+xml" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/contexto.css" />
-
-    <!-- (Opcional) Fuente como en el ejemplo -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap"
-      rel="stylesheet"
-    />
   </head>
 
   <body>
@@ -34,6 +26,7 @@
             id="searchBtn"
             aria-label="Abrir buscador"
             aria-expanded="false"
+            type="button"
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -53,12 +46,14 @@
             />
           </div>
 
+          <!-- MENÚ HAMBURGUESA -->
           <button
             class="iconbtn burger"
             id="menuBtn"
             aria-label="Abrir menú"
             aria-expanded="false"
             aria-controls="nav"
+            type="button"
           >
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path
@@ -68,66 +63,90 @@
           </button>
         </div>
 
+        <!-- NAVEGACIÓN PRINCIPAL -->
         <nav class="nav" aria-label="Navegación principal" id="nav">
           <a class="nav__link" href="salas.html">SALAS</a>
-          <a class="nav__link" href="contexto.html">CONTEXTO</a>
+          <a class="nav__link" href="contexto.html" aria-current="page"
+            >CONTEXTO</a
+          >
         </nav>
       </div>
     </header>
 
- <div class="scroller" id="scroller">
-    <main class="story" id="story">
-      <section class="pin">
-        <div class="stage">
-          <div class="fog"></div>
-          <div class="layer L-text">
-            <div class="text">
-              <h1>CONTEXTO<br>Arte Contemporáneo</h1>
-              <br>
-              <p>
-                ARTchive propone un recorrido virtual a través de distintas corrientes
-                del arte contemporáneo, organizado en salas temáticas. Cada sala reúne
-                obras representativas de un estilo; desde el Pop Art y el Minimalismo
-                hasta el Arte Digital.
-              </p>
-              <br> <br>
-                 <p>
-                Este espacio está pensado para ser explorado a tu propio ritmo. El
-                visitante puede avanzar a través del recorrido propuesto, o elegir la
-                sala que más le apetezca descurbir. ARTchive no es lineal ni cerrado:
-                se puede avanzar, volver o cambiar de sala en cualquier momento.
-              </p>
+    <!-- SCROLL INTERNO SOLO PARA ESTA HISTORIA -->
+    <div class="scroller" id="scroller">
+      <main class="story" id="story">
+        <section class="pin">
+          <div class="stage">
+            <div class="fog"></div>
+
+            <div class="layer L-text">
+              <div class="text">
+                <h1>CONTEXTO<br />Arte Contemporáneo</h1>
+
+                <p>
+                  ARTchive propone un recorrido virtual a través de distintas
+                  corrientes del arte contemporáneo, organizado en salas
+                  temáticas. Cada sala reúne obras representativas de un estilo;
+                  desde el Pop Art y el Minimalismo hasta el Arte Digital.
+                </p>
+
+                <p>
+                  Este espacio está pensado para ser explorado a tu propio ritmo.
+                  El visitante puede avanzar a través del recorrido propuesto, o
+                  elegir la sala que más le apetezca descubrir. ARTchive no es
+                  lineal ni cerrado: se puede avanzar, volver o cambiar de sala
+                  en cualquier momento.
+                </p>
+              </div>
+            </div>
+
+            <div class="layer L-media">
+              <div class="media">
+                <div class="images-wrap">
+                  <figure class="img-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1520975958225-0a5a3a8a1b5b?auto=format&fit=crop&w=1600&q=80"
+                      alt="Introducción"
+                    />
+                    <span class="badge">Introducción</span>
+                  </figure>
+
+                  <figure class="img-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1600&q=80"
+                      alt="Obra"
+                    />
+                    <span class="badge">Obra</span>
+                  </figure>
+                </div>
+
+                <div class="actions">
+                  <button class="btn btn-primary" id="btnRecorrido" type="button">
+                    Seguir recorrido
+                  </button>
+                  <button class="btn btn-ghost" id="btnSalas" type="button">
+                    Explorar las salas
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
+        </section>
+      </main>
+    </div>
 
-          <div class="layer L-media">
-            <div class="media">
+    <!-- ✅ HINT FUERA DEL SCROLLER: fixed REAL -->
+    <div class="hint" aria-hidden="true">↓ scroll</div>
 
-              <div class="images-wrap">
-                <figure class="img-card">
-                  <img src="https://images.unsplash.com/photo-1520975958225-0a5a3a8a1b5b?auto=format&fit=crop&w=1600&q=80" alt="Movimiento 1">
-                  <span class="badge">Introducción</span>
-                </figure>
-
-                <figure class="img-card">
-                  <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1600&q=80" alt="Movimiento 2">
-                  <span class="badge">obra</span>
-                </figure>
-              </div>
-
-              <div class="actions">
-                <button class="btn btn-primary" id="btnRecorrido">Seguir recorrido</button>
-                <button class="btn btn-ghost" id="btnSalas">Explorar las salas</button>
-              </div>
-
-            </div>
-          </div>
-
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="footer-col">
+          <h3 class="footer-title">ARTCHIVE</h3>
+          <a class="footer-top" href="#top" aria-label="Volver al inicio de la página">
+            ↑ Volver a arriba
+          </a>
         </div>
-        <div class="hint">↓ scroll</div>
-      </section>
-    </main>
-  </div>
 
         <nav class="footer-col" aria-label="Enlaces del sitio">
           <h4 class="footer-subtitle">Visita</h4>
@@ -153,33 +172,22 @@
         <span>© <span id="year"></span><noscript>2026</noscript>ARTCHIVE</span>
 
         <span class="footer-sep" aria-hidden="true">·</span>
-        <a
-          class="footer-smalllink"
-          href="https://www.artic.edu/"
-          target="_blank"
-          rel="noopener"
-        >
+        <a class="footer-smalllink" href="https://www.artic.edu/" target="_blank" rel="noopener">
           API AIC
         </a>
 
         <span class="footer-sep" aria-hidden="true">·</span>
-        <a
-          class="footer-smalllink"
-          href="https://harvardartmuseums.org/"
-          target="_blank"
-          rel="noopener"
-        >
+        <a class="footer-smalllink" href="https://harvardartmuseums.org/" target="_blank" rel="noopener">
           API Harvard
         </a>
       </div>
     </footer>
 
-    <link
-      rel="stylesheet"
-      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
-    />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
     <script defer src="./js/script.js"></script>
+    <script defer src="./js/contexto.js"></script>
   </body>
 </html>
