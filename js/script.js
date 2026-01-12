@@ -18,12 +18,12 @@ searchBtn.addEventListener("click", () => {
   const isHidden = search.hasAttribute("hidden");
 
   if (isHidden) {
-    // Mostrar buscador
+
     search.removeAttribute("hidden");
     search.classList.add("is-open");
     searchBtn.setAttribute("aria-expanded", "true");
 
-    // Inicializar autocomplete solo una vez
+    
     if (!autocompleteInitialized) {
       initAutocomplete();
       autocompleteInitialized = true;
@@ -31,7 +31,7 @@ searchBtn.addEventListener("click", () => {
 
     setTimeout(() => searchInput.focus(), 0);
   } else {
-    // Ocultar buscador
+    
     search.setAttribute("hidden", "");
     search.classList.remove("is-open");
     searchBtn.setAttribute("aria-expanded", "false");
@@ -39,13 +39,11 @@ searchBtn.addEventListener("click", () => {
   }
 });
 
-/* -----------------------------
-   CERRAR TODO CON ESCAPE
------------------------------ */
+
 document.addEventListener("keydown", (e) => {
   if (e.key !== "Escape") return;
 
-  // Cerrar buscador
+  
   if (!search.hasAttribute("hidden")) {
     search.setAttribute("hidden", "");
     search.classList.remove("is-open");
@@ -53,14 +51,12 @@ document.addEventListener("keydown", (e) => {
     searchInput.value = "";
   }
 
-  // Cerrar menú
+  
   nav.classList.remove("is-open");
   menuBtn.setAttribute("aria-expanded", "false");
 });
 
-/* -----------------------------
-   AUTOCOMPLETE + REDIRECCIÓN
------------------------------ */
+
 function initAutocomplete() {
   const availableTags = [
     // POP ART
