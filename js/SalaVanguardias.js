@@ -213,7 +213,7 @@ async function buildArtwork(item){
   return unified;
 }
 
-/* -------------------- render cards -------------------- */
+
 function workCardHTML(w, idx){
   const title  = safe(w.hTitle || w.aicTitle || w.title);
   const artist = safe(w.hArtist || w.aicArtist || w.artist);
@@ -235,7 +235,7 @@ function renderWorks(){
   track.innerHTML = WORKS.map(workCardHTML).join("");
 }
 
-/* -------------------- modal -------------------- */
+
 function factRow(label, value){
   if (!value || !String(value).trim().length) return "";
   return `
@@ -299,16 +299,14 @@ $(window).on("keydown", (e) => {
   if (e.key === "Escape" && $modalOverlay.hasClass("isOpen")) closeModal();
 });
 
-/* -------------------- end actions -------------------- */
+
 function setEndActionsVisible(visible){
   if (!endActions) return;
   endActions.classList.toggle("isVisible", !!visible);
   endActions.setAttribute("aria-hidden", visible ? "false" : "true");
 }
 
-/* =========================================================
-   ✅ CAMBIOS MÍNIMOS: calcular con el ancho/centro de sticky
-   ========================================================= */
+
 function getViewportRect(){
   return sticky.getBoundingClientRect();
 }
@@ -320,12 +318,11 @@ function viewportCenterX(){
   return r.left + r.width / 2;
 }
 
-/* --- before: maxX() usaba window.innerWidth --- */
 function maxX(){
   return Math.max(0, track.scrollWidth - viewportWidth());
 }
 
-/* --- before: updateEdgePadding() usaba window.innerWidth --- */
+
 function updateEdgePadding(){
   const first = track.querySelector(".artCard");
   if (!first) return;
@@ -334,7 +331,7 @@ function updateEdgePadding(){
   document.documentElement.style.setProperty("--edgePad", `${edge}px`);
 }
 
-/* --- before: isLastCardCentered() usaba window.innerWidth/2 --- */
+
 function isLastCardCentered(){
   const cards = track.querySelectorAll(".artCard");
   if (!cards.length) return false;
@@ -354,7 +351,6 @@ function updateEndActions(){
   setEndActionsVisible(isLastCardCentered());
 }
 
-/* -------------------- scroll mapping -------------------- */
 let currentX = 0, targetX = 0;
 const ease = 0.075;
 
@@ -379,7 +375,7 @@ function updateTargetX(){
   targetX = -p * maxX();
 }
 
-/* --- before: apply3DEffect() centerX = window.innerWidth/2 --- */
+
 function apply3DEffect(){
   const cards = track.querySelectorAll(".artCard");
   const centerX = viewportCenterX();
@@ -436,7 +432,7 @@ function stopInertia(){
   }
 }
 
-/* --- before: snapToNearest() centerX = window.innerWidth/2 --- */
+
 function snapToNearest(){
   const rect = section.getBoundingClientRect();
   if (!(rect.top <= 0 && rect.bottom >= window.innerHeight * 0.6)) return;
@@ -500,7 +496,7 @@ function onResize(){
   apply3DEffect();
 }
 
-/* -------------------- pointer drag -------------------- */
+
 let isDown = false;
 let dragged = false;
 let downX = 0, downY = 0;
@@ -578,7 +574,7 @@ function onStickyClickCapture(){
   pressedCardEl = null;
 }
 
-/* -------------------- load works -------------------- */
+
 async function loadWorks(){
   usedAicIds.clear();
   usedImageIds.clear();
@@ -653,7 +649,7 @@ function bind(){
 bind();
 loadWorks().then(() => tick());
 
-/* -------------------- focus from URL -------------------- */
+
 function focusWorkFromURL() {
   const params = new URLSearchParams(window.location.search);
   const idx = Number(params.get("obra"));
@@ -668,7 +664,7 @@ function focusWorkFromURL() {
     const cardRect = card.getBoundingClientRect();
     const cardCenter = cardRect.left + cardRect.width / 2;
 
-    // ✅ usar el centro real del carrusel (sticky), no el viewport
+
     const centerX = viewportCenterX();
     const deltaX = cardCenter - centerX;
 

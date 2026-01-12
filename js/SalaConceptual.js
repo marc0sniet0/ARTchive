@@ -658,20 +658,20 @@ function focusWorkFromURL() {
 
     clearInterval(tryFocus);
 
-    // 1. Obtener posición horizontal del card
+   
     const cardRect = card.getBoundingClientRect();
     const cardCenter = cardRect.left + cardRect.width / 2;
     const viewportCenter = window.innerWidth / 2;
     const deltaX = cardCenter - viewportCenter;
 
-    // 2. Convertir desplazamiento horizontal a desplazamiento vertical
-    const mx = maxX(); // ancho total desplazable
-    const { total } = getScrollProgress(); // scroll vertical total
+    
+    const mx = maxX(); 
+    const { total } = getScrollProgress(); 
 
     if (mx > 0 && total > 0) {
       const desiredX = currentX - deltaX;
       const clampedX = clamp(desiredX, -mx, 0);
-      const p = (-clampedX) / mx; // porcentaje de scroll
+      const p = (-clampedX) / mx; 
       const sectionTop = section.getBoundingClientRect().top + window.scrollY;
       const targetY = sectionTop + p * total;
 
